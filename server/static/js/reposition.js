@@ -10,6 +10,7 @@ AFRAME.registerComponent('reposition-on-click', {
             var sceneEl = document.querySelector('a-scene');
             sceneEl.querySelector('#player').object3D.position.set(goThere.x, goThere.y + 2, goThere.z);
             sceneEl.querySelector('a-camera').object3D.position.set(goThere.x, goThere.y + 2, goThere.z);
+            // sceneEl.querySelector('#avatar').object3D.position.set(goThere.x, goThere.y + 2, goThere.z);
         });
     }
 });
