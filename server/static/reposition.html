@@ -73,7 +73,7 @@
       <a-entity id="player" 
           networked="template:#avatar-template;attachTemplateToLocal:false;" 
           camera="userHeight: 2.6" 
-          wasd-controls look-controls="">
+          wasd-controls look-controls>
         <a-sphere class="head"
           visible="false"
           random-color
@@ -100,11 +100,12 @@
           repeat="indefinite"></a-animation>
         </a-entity>
     
+        <a-box id='tomato' color="tomato" depth="1" height="4" width="1"></a-box>
 
-<!-- 
+
         <a-camera>
           <a-cursor></a-cursor>
-        </a-camera> -->
+        </a-camera>
     </a-scene>
 
     <!-- GitHub Corner. -->
