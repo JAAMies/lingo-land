@@ -30,8 +30,6 @@
         <a-asset-item id="raccoon-obj" src="./assets/Raccoon_Blocks/model.obj"></a-asset-item>
         <a-asset-item id="raccoon-mtl" src="./assets/Raccoon_Blocks/materials.mtl"></a-asset-item>
 
-        <a-asset-item id="meganom-obj" src="./assets/lingo-assets/meganom/house2.obj"></a-asset-item>
-        <a-asset-item id="meganom-mtl" src="./assets/lingo-assets/meganom/house2.mtl"></a-asset-item> 
 
         <a-asset-item id="shell-obj" src="./assets/lingo-assets/house-shell/house.obj"></a-asset-item>
         <a-asset-item id="shell-mtl" src="./assets/lingo-assets/house-shell/house.mtl"></a-asset-item> 
@@ -39,8 +37,6 @@
         <a-asset-item id="house-obj" src="./assets/lingo-assets/house/model.obj"></a-asset-item>
         <a-asset-item id="house-mtl" src="./assets/lingo-assets/house/materials.mtl"></a-asset-item> 
 
-        <a-asset-item id="house2-obj" src="./assets/lingo-assets/house2/model.obj"></a-asset-item>
-        <a-asset-item id="house2-mtl" src="./assets/lingo-assets/house2/materials.mtl"></a-asset-item> 
 
         <!-- OBJECTS -->
        
@@ -62,12 +58,10 @@
       <a-entity id="player" class="heads" networked="template:#avatar-template;attachTemplateToLocal:false;" camera="userHeight: 3" spawn-in-circle="radius:2;" wasd-controls look-controls></a-entity>
       
       <!-- BUILDINGS -->
-      <a-entity obj-model="mtl: #meganom-mtl; obj: #meganom-obj" position="-15 10 0" scale="0.25 0.222 0.2" rotation="90 0 0"></a-entity>
       <a-entity obj-model="mtl: #shell-mtl; obj: #shell-obj" position="31.25 -0.01 0" scale="0.05 0.05 0.05" rotation="0 90 0"></a-entity>
 
       <a-entity obj-model="mtl: #house-mtl; obj: #house-obj" position="30 2 0"  scale="2 2 2" rotation="0 0 0"></a-entity>
-      <a-entity obj-model="mtl: #house2-mtl; obj: #house2-obj" position="-15 2 0"  scale="2 2 2" rotation="0 180 0"></a-entity>
-
+    
       <!-- OBJECTS -->
 
       <!-- PEOPLE -->
