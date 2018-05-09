@@ -40,7 +40,7 @@
           var speechRecognizer = new webkitSpeechRecognition();
           speechRecognizer.continuous = true;
           speechRecognizer.interimResults = true;
-          speechRecognizer.lang = 'en-IN';
+          speechRecognizer.lang = 'es-ES';
           speechRecognizer.start();
 
           var finalTranscripts = '';
@@ -49,6 +49,7 @@
             var interimTranscripts = '';
             for (let i = event.resultIndex; i < event.results.length; i++) {
               var transcript = event.results[i][0].transcript;
+              console.log(transcript)
               transcript.replace("\n", "<br>")
               if (event.results[i].isFinal) {
                 finalTranscripts += transcript;
