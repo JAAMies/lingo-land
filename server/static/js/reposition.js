@@ -1,4 +1,3 @@
-
 AFRAME.registerComponent('reposition-on-click', {
 
     init: function () {
