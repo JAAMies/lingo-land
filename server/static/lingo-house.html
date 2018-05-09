@@ -1,7 +1,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Lingo Test</title>
+    <title>LingoLand House</title>
     <meta name="description" content="Basic Example — Networked-Aframe">
 
     <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
@@ -13,6 +13,10 @@
     <script src="https://unpkg.com/aframe-randomizer-components@^3.0.1/dist/aframe-randomizer-components.min.js"></script>
     <script src="https://unpkg.com/aframe-particle-system-component@1.0.5/dist/aframe-particle-system-component.min.js"></script>
     <script src="/js/spawn-in-circle.component.js"></script>
+
+    <!-- script for movement -->
+    <script src='./js/reposition.js'></script>
+    <script src='./js/moveIntoHouse.js'></script>
 
     <!-- add preset forest scene -->
     <script src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
@@ -78,6 +82,46 @@
       <a-text class="texts" value="la television" visible="false" color="white"
         position="31 2.5 -4.5" scale="1.5 1.5 1.5" rotation="0 90 0"></a-text>
 
+        <!-- Movement -->
+    <a-entity 
+      geometry="primitive: circle; radiusInner: 0.5; radiusOuter: 0.7"
+      material="side: double; color: green"
+      rotation="90 0 0"
+      position="5 0 0"
+      reposition-on-click >
+      <a-animation attribute="position" to="5 0.1 0" direction="alternate" dur="1000"
+      repeat="indefinite"></a-animation>
+    </a-entity>
+
+    <a-entity 
+      geometry="primitive: circle; radiusInner: 0.5; radiusOuter: 0.7"
+      material="side: double; color: red"
+      rotation="90 0 0"
+      position="10 0 0"
+      reposition-on-click >
+      <a-animation attribute="position" to="10 0.1 0" direction="alternate" dur="1000"
+      repeat="indefinite"></a-animation>
+    </a-entity>
+
+    <a-entity 
+      geometry="primitive: circle; radiusInner: 0.5; radiusOuter: 0.7"
+      material="side: double; color: yellow"
+      rotation="90 0 0"
+      position="17 0.20 0"
+      move-on-click >
+      <!-- <a-animation attribute="position" to="17 1.11 0" direction="alternate" dur="1000"
+      repeat="indefinite"></a-animation> -->
+    </a-entity>
+
+    <a-entity 
+      geometry="primitive: circle; radiusInner: 0.5; radiusOuter: 0.7"
+      material="side: double; color: blue"
+      rotation="90 0 0"
+      position="25 0.50 0"
+      move-on-click >
+      <!-- <a-animation attribute="position" to="17 1.11 0" direction="alternate" dur="1000"
+      repeat="indefinite"></a-animation> -->
+    </a-entity>
 
       <!-- PEOPLE -->
         <a-camera><a-cursor></a-cursor></a-camera>
