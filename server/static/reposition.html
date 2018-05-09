@@ -70,10 +70,10 @@
         <!-- /Templates -->
       </a-assets>
 
-      <a-entity id="player" 
-          networked="template:#avatar-template;attachTemplateToLocal:false;" 
-          camera="userHeight: 2.6" 
-          wasd-controls look-controls="">
+      <a-entity id="player"
+          networked="template:#avatar-template;attachTemplateToLocal:false;"
+          camera="userHeight: 2.6"
+          wasd-controls look-controls>
         <a-sphere class="head"
           visible="false"
           random-color
@@ -89,8 +89,8 @@
 
       <a-sky src="#sky" rotation="0 -90 0"></a-sky>
       <a-entity id="particles" particle-system="preset: snow"></a-entity>
-    
-    <a-entity 
+
+    <a-entity
           geometry="primitive: circle; radiusInner: 0.5; radiusOuter: 0.7"
           material="side: double; color: white"
           rotation="90 0 0"
@@ -99,12 +99,12 @@
           <a-animation attribute="position" to="0 0.1 -5" direction="alternate" dur="1000"
           repeat="indefinite"></a-animation>
         </a-entity>
-    
 
-<!-- 
+
+
         <a-camera>
           <a-cursor></a-cursor>
-        </a-camera> -->
+        </a-camera>
     </a-scene>
 
     <!-- GitHub Corner. -->
