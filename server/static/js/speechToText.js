@@ -26,16 +26,18 @@ var r = document.getElementById('speech-recognition');
         //   interimTranscripts += transcript;
         // }
         // r.setAttribute("value", transcript)
-        console.log("vocabWords", vocabWords)
-        console.log("vocabWords has los libros", vocabWords.has(transcript))
-        console.log("transcript type", typeof transcript)
-        if (vocabWords.has(transcript.toString)){
-          r.setAttribute("color", "#50A534")
+        // console.log("vocabWords", vocabWords)
+        // console.log("vocabWords has los libros", vocabWords.has(transcript))
+        // console.log("transcript type", typeof transcript)
+
+          // r.setAttribute("color", "#50A534")
           r.setAttribute("value", transcript)
-        } else {
-          setTimeout(() => r.setAttribute("color", "white"), 1000)
-          r.setAttribute("value", transcript)
-        }
+
+          console.log("value", r.getAttribute("value"))
+          console.log("value type", typeof r.getAttribute("value"))
+          console.log(r.getAttribute("value") === "los libros")
+
+
         // if (r.getAttribute("value") === "los libros"){
         // while (vocabWords.includes(r.getAttribute("value"))){
         //   r.setAttribute("color", "#50A534")
