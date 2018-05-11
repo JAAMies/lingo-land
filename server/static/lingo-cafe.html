@@ -3,7 +3,8 @@
     <meta charset="utf-8">
     <title>Lingo Test</title>
     <meta name="description" content="Basic Example — Networked-Aframe">
-
+    
+    <script src=https://wzrd.in/standalone/uuid@3></script>
     <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
     <script src="/easyrtc/easyrtc.js"></script>
@@ -13,6 +14,7 @@
     <script src="https://unpkg.com/aframe-randomizer-components@^3.0.1/dist/aframe-randomizer-components.min.js"></script>
     <script src="https://unpkg.com/aframe-particle-system-component@1.0.5/dist/aframe-particle-system-component.min.js"></script>
     <script src="/js/spawn-in-circle.component.js"></script>
+    <script src='./js/baristaRequest.js'></script>
     
     <!-- add preset forest scene -->
     <script src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
@@ -32,19 +34,19 @@
 
         <a-asset-item id="diner-obj" src="./assets/lingo-assets/cafe/cafe.obj"></a-asset-item>
         <a-asset-item id="diner-mtl" src="./assets/lingo-assets/cafe/cafe.mtl"></a-asset-item> 
-
+<!-- 
         <a-asset-item id="coffeeshop-obj" src="./assets/lingo-assets/coffeehouse/coffeehouse.obj"></a-asset-item>
-        <a-asset-item id="coffeeshop-mtl" src="./assets/lingo-assets/coffeehouse/coffeehouse.mtl"></a-asset-item> 
+        <a-asset-item id="coffeeshop-mtl" src="./assets/lingo-assets/coffeehouse/coffeehouse.mtl"></a-asset-item>  -->
 
-        <a-asset-item id="meganom-obj" src="./assets/lingo-assets/meganom/house2.obj"></a-asset-item>
-        <a-asset-item id="meganom-mtl" src="./assets/lingo-assets/meganom/house2.mtl"></a-asset-item>
+        <!-- <a-asset-item id="meganom-obj" src="./assets/lingo-assets/meganom/house2.obj"></a-asset-item>
+        <a-asset-item id="meganom-mtl" src="./assets/lingo-assets/meganom/house2.mtl"></a-asset-item> -->
 
         <!-- OBJECTS -->
-        <a-asset-item id="bar-obj" src="./assets/lingo-assets/bar/model.obj"></a-asset-item>
+        <!-- <a-asset-item id="bar-obj" src="./assets/lingo-assets/bar/model.obj"></a-asset-item>
         <a-asset-item id="bar-mtl" src="./assets/lingo-assets/bar/materials.mtl"></a-asset-item> 
 
         <a-asset-item id="sofa2-obj" src="./assets/lingo-assets/sofa2/model.obj"></a-asset-item>
-        <a-asset-item id="sofa2-mtl" src="./assets/lingo-assets/sofa2/materials.mtl"></a-asset-item> 
+        <a-asset-item id="sofa2-mtl" src="./assets/lingo-assets/sofa2/materials.mtl"></a-asset-item>  -->
 
         <!-- PEOPLE -->
         <a-asset-item id="jack-obj" src="./assets/lingo-assets/people/Jack/human_male.obj"></a-asset-item>
@@ -73,17 +75,18 @@
             wasd-controls look-controls></a-entity>
       
       <!-- BUILDINGS -->
-      <a-entity obj-model="mtl: #meganom-mtl; obj: #meganom-obj" position="-10 5 -16" scale="0.1 0.1 0.1" rotation="90 200 0"></a-entity>
+      <!-- <a-entity obj-model="mtl: #meganom-mtl; obj: #meganom-obj" position="-10 5 -16" scale="0.1 0.1 0.1" rotation="90 200 0"></a-entity> -->
       <a-entity obj-model="mtl: #diner-mtl; obj: #diner-obj" position="16 0 0" rotation="0 90 0"></a-entity>
-      <a-entity obj-model="mtl: #coffeeshop-mtl; obj: #coffeeshop-obj" position="5 0 19" rotation="0 0 0" scale="0.02 0.02 0.02"></a-entity>
+      <!-- <a-entity obj-model="mtl: #coffeeshop-mtl; obj: #coffeeshop-obj" position="5 0 19" rotation="0 0 0" scale="0.02 0.02 0.02"></a-entity> -->
 
       <!-- OBJECTS -->
-      <a-entity obj-model="mtl: #bar-mtl; obj: #bar-obj" position="-9 1.5 -19"  scale="1 1 1" rotation="0 -70 0"></a-entity>
-      <a-entity obj-model="mtl: #sofa2-mtl; obj: #sofa2-obj" position="-12 0.5 -12"  scale="2 3 3" rotation="0 -70 0"></a-entity>
+      <!-- <a-entity obj-model="mtl: #bar-mtl; obj: #bar-obj" position="-9 1.5 -19"  scale="1 1 1" rotation="0 -70 0"></a-entity>
+      <a-entity obj-model="mtl: #sofa2-mtl; obj: #sofa2-obj" position="-12 0.5 -12"  scale="2 3 3" rotation="0 -70 0"></a-entity> -->
 
       <!-- PEOPLE -->
       <a-entity obj-model="obj: #jack-obj; mtl: #jack-mtl" position="23.5 0 3" scale="0.0021 0.0021 0.0021" rotation="0 -90 0"></a-entity>
-      <a-entity obj-model="obj: #scott-obj; mtl: #scott-mtl" position="23.3 0 0" scale="0.00205 0.00205 0.00205" rotation="-90 180 0"></a-entity>
+      <a-entity obj-model="obj: #scott-obj; mtl: #scott-mtl" position="23.3 0 0" scale="0.00205 0.00205 0.00205" rotation="-90 180 0"
+          id='barista' barista-request></a-entity>
       
 
     </a-scene>

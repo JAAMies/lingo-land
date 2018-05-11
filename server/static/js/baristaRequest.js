@@ -1,13 +1,13 @@
 var r = document.getElementById('result');
 
 async function speak(text) {
-    var msg = new SpeechSynthesisUtterance();
-    msg.lang = 'es-ES'
-    console.log(msg)
-    msg.text = text;
-    msg.voice = await speechSynthesis.getVoices().find((voice) => voice.name == "Jorge");
-    console.log("msg.voice", msg.voice)
-    window.speechSynthesis.speak(msg);
+  var msg = new SpeechSynthesisUtterance();
+  msg.lang = 'es-ES'
+  console.log(msg)
+  msg.text = text;
+  msg.voice = await speechSynthesis.getVoices().find((voice) => voice.name == "Jorge");
+  console.log("msg.voice", msg.voice)
+  window.speechSynthesis.speak(msg);
 }
 
 function startConverting() {
@@ -21,7 +21,7 @@ function startConverting() {
   speechRecognizer.lang = 'es-ES';
   speechRecognizer.start();
 
-  speechRecognizer.onresult = function(event) {
+  speechRecognizer.onresult = function (event) {
     console.log('speech result', event)
 
     var usersays = ''
@@ -38,15 +38,15 @@ function startConverting() {
 
     console.log('body:', body)
     fetch(`/barista/${sessionId}`, {
-        method: 'PUT',
-        body,
-        headers: new Headers({
-          'Content-Type': 'application/json'
-        })
+      method: 'PUT',
+      body,
+      headers: new Headers({
+        'Content-Type': 'application/json'
       })
+    })
       .then(response => response.json())
       .then(response => speak(response.toString()))
-        // console.log('Success:', response))
+      // console.log('Success:', response))
       .catch(error => console.error('Error:', error))
   }
 
@@ -60,8 +60,8 @@ AFRAME.registerComponent('barista-request', {
   init() {
     this.recognizer = startConverting();
     let barista = document.getElementById('barista');
-    barista.addEventListener('click', function() {
-      this.setAttribute('material', 'color:green')
+    barista.addEventListener('click', function () {
+      // this.setAttribute('material', 'color:green')
     })
   },
 
