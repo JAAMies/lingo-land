@@ -38,7 +38,7 @@
     <script>
       function onConnected(){
       }
-
+      // var cameraPlayer = document.getElementById('camera-for-player');
       AFRAME.registerComponent('foo',{
         init:function(){
         let playerEl = document.createElement('a-entity');
@@ -47,7 +47,7 @@
         playerEl.setAttribute('networked','showLocalTemplate:false');
         playerEl.setAttribute('networked-audio-source', '')
         playerEl.setAttribute('camera','');
-        playerEl.setAttribute('cursor','');
+        playerEl.setAttribute('cursor','fuse: true; fuseTimeout: 500');
         playerEl.setAttribute('wasd-controls','');
         playerEl.setAttribute('look-controls','');
         setTimeout(function(){
@@ -62,14 +62,26 @@
         if(playerNumber==0){
           playerEl.setAttribute('position','-1 1.6 -1');
           playerEl.setAttribute('rotation','0 -90 0');
+          // cameraPlayer.setAttribute('position','-1 1.6 -1');
+          // cameraPlayer.setAttribute('rotation','0 -90 0');
         }else if(playerNumber==1){
           playerEl.setAttribute('position','1 1.6 -1');
           playerEl.setAttribute('rotation','0 90 0');
+          // cameraPlayer.setAttribute('position','1 1.6 -1');
+          // cameraPlayer.setAttribute('rotation','0 90 0');
         }else{
           playerEl.setAttribute('position','3 1.6 -1');
           playerEl.setAttribute('rotation','0 0 0');
         }
+        var cursorEntity = document.createElement('a-entity');
+        cursorEntity.setAttribute('cursor', 'fuse:true');
+        cursorEntity.setAttribute('position', '0 0 -1');
+        cursorEntity.setAttribute('geometry', 'primitive:ring; radiusInner:0.02; radiusOuter:0.03');
+        cursorEntity.setAttribute('material', 'color:white; shader:flat');
+
+        playerEl.appendChild(cursorEntity)
         scene.appendChild(playerEl);
+
       },3000);
 
         }
@@ -153,6 +165,10 @@
       <a-entity light="color: #ffaaff; intensity: 1.5" position="5 5 5"></a-entity>
       <!--<a-entity id="player" networked="template:#avatar-template;showLocalTemplate:false;" camera wasd-controls look-controls></a-entity>-->
       <a-sky src="#sky" rotation="0 -90 0"></a-sky>
+      <!-- <a-camera id='camera-for-player'>
+        <a-cursor></a-cursor>
+      </a-camera> -->
+
     </a-scene>
 
     <!-- <script>
