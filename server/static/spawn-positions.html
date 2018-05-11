@@ -4,10 +4,10 @@
     <title>Basic Example — Networked-Aframe</title>
     <meta name="description" content="Basic Example — Networked-Aframe">
 
-    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+    <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
     <script src="easyrtc/easyrtc.js"></script>
-    <script src="https://unpkg.com/networked-aframe@^0.2.0/dist/networked-aframe.min.js"></script>
+    <script src="https://unpkg.com/networked-aframe@^0.6.0/dist/networked-aframe.min.js"></script>
 
     <script src="https://unpkg.com/aframe-randomizer-components@^3.0.1/dist/aframe-randomizer-components.min.js"></script>
     <script src="https://unpkg.com/aframe-particle-system-component@1.0.5/dist/aframe-particle-system-component.min.js"></script>
@@ -40,18 +40,22 @@
         init:function(){
         let playerEl = document.createElement('a-entity');
         playerEl.setAttribute('id','player');
-        playerEl.setAttribute('networked','template','#avatar-template');
-        playerEl.setAttribute('networked','showLocalTemplate','false');
+        // playerEl.setAttribute('networked','template','#avatar-template');
+        // playerEl.setAttribute('networked','showLocalTemplate','false');
+        playerEl.setAttribute('networked', 'template:#avatar-template;attachTemplateToLocal:false;')
+
+        playerEl.setAttribute('networked-audio-source', '');
         playerEl.setAttribute('camera','');
         playerEl.setAttribute('cursor','');
         playerEl.setAttribute('wasd-controls','');
         playerEl.setAttribute('look-controls','');
         setTimeout(function(){
         let scene = document.querySelector('a-scene');
-        console.log(NAF.entities.entities);
-        console.log(Object.keys(NAF.entities.entities));
+        console.log("NAF entities", NAF.entities.entities);
+        console.log("length of NAFs", Object.keys(NAF.entities.entities));
         let playerNumber = Object.keys(NAF.entities.entities).length;
-        console.log(playerNumber);
+        console.log("player number", playerNumber);
+        console.log("playerEl", playerEl);
 
         //let player = document.querySelector('#player');
 
