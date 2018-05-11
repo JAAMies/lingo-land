@@ -4,14 +4,17 @@
     <title>Basic Example — Networked-Aframe</title>
     <meta name="description" content="Basic Example — Networked-Aframe">
 
-    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+    <script src="https://aframe.io/releases/0.6.0/aframe.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
     <script src="easyrtc/easyrtc.js"></script>
-    <script src="https://unpkg.com/networked-aframe@^0.2.0/dist/networked-aframe.min.js"></script>
+    <script src="https://unpkg.com/networked-aframe@^0.5.0/dist/networked-aframe.min.js"></script>
 
     <script src="https://unpkg.com/aframe-randomizer-components@^3.0.1/dist/aframe-randomizer-components.min.js"></script>
     <script src="https://unpkg.com/aframe-particle-system-component@1.0.5/dist/aframe-particle-system-component.min.js"></script>
     <script src="/js/spawn-in-circle.component.js"></script>
+
+
+
 
     <!-- conversation prompt generator with click handler -->
     <script src="/js/conversationPrompts.js" defer></script>
@@ -40,8 +43,9 @@
         init:function(){
         let playerEl = document.createElement('a-entity');
         playerEl.setAttribute('id','player');
-        playerEl.setAttribute('networked','template','#avatar-template');
-        playerEl.setAttribute('networked','showLocalTemplate','false');
+        playerEl.setAttribute('networked','template:#avatar-template');
+        playerEl.setAttribute('networked','showLocalTemplate:false');
+        playerEl.setAttribute('networked-audio-source', '')
         playerEl.setAttribute('camera','');
         playerEl.setAttribute('cursor','');
         playerEl.setAttribute('wasd-controls','');
