@@ -40,8 +40,7 @@
         init:function(){
         let playerEl = document.createElement('a-entity');
         playerEl.setAttribute('id','player');
-        playerEl.setAttribute('networked','template','#avatar-template');
-        playerEl.setAttribute('networked','showLocalTemplate','false');
+        playerEl.setAttribute('networked', "template:#avatar-template;attachTemplateToLocal:false;")
         playerEl.setAttribute('camera','');
         playerEl.setAttribute('cursor','');
         playerEl.setAttribute('wasd-controls','');
