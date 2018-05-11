@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "aframe": "^0.8.2",
+    "dialogflow": "^0.3.0",
     "easyrtc": "^1.1.0",
     "express": "^4.16.3",
     "networked-aframe": "^0.6.1",
