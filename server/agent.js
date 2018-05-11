@@ -15,20 +15,9 @@ const sessionClient = new dialogflow.SessionsClient({ keyFilename: './Barista-Bo
 // Define session path
 const sessionPath = sessionClient.sessionPath(projectId, sessionId);
 //-------------------------------------------------------------------   NEW STARTS
-// router.get('/:usersays', (req, res, next) => {
-//   const query = req.params.usersays;
-//   const request = {
-//     session: sessionPath,
-//     queryInput: {
-//       text: {
-//         text: query,
-//         languageCode: languageCode,
-//       },
-//     },
-//   };
 
 router.put('/', (req, res, next) => {
-  // const resJson = JSON.parse(req.body)
+
   const query = req.body.usersays;
   console.log("OUR BODY IS...", typeof req.body)
   const request = {
@@ -40,8 +29,6 @@ router.put('/', (req, res, next) => {
       },
     },
   };
-
-
   // Send request and log result
   sessionClient
     .detectIntent(request)
@@ -50,7 +37,7 @@ router.put('/', (req, res, next) => {
       const result = responses[0].queryResult;
       console.log(`  Query: ${result.queryText}`);
       console.log(`  Response: ${result.fulfillmentText}`);
-      const response = result.fulfillmentText // OUR BOTS RESPONSE
+      const response = result.fulfillmentText
       if (result.intent) {
         console.log(`  Intent: ${result.intent.displayName}`);
         return response;
