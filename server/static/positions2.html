@@ -1,0 +1,164 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Basic Example — Networked-Aframe</title>
+    <meta name="description" content="Basic Example — Networked-Aframe">
+
+    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
+    <script src="easyrtc/easyrtc.js"></script>
+    <script src="https://unpkg.com/networked-aframe@^0.2.0/dist/networked-aframe.min.js"></script>
+
+    <script src="https://unpkg.com/aframe-randomizer-components@^3.0.1/dist/aframe-randomizer-components.min.js"></script>
+    <script src="https://unpkg.com/aframe-particle-system-component@1.0.5/dist/aframe-particle-system-component.min.js"></script>
+    <script src="/js/spawn-in-circle.component.js"></script>
+
+    <!-- conversation prompt generator with click handler -->
+    <script src="/js/conversationPrompts.js" defer></script>
+
+    <script>
+      // Define custom schema for syncing avatar color, set by random-color
+      var avatarSchema = {
+        template: '#avatar-template',
+        components: [
+          'position',
+          'rotation',
+          {
+            selector: '.head',
+            component: 'material'
+          }
+        ]
+      };
+      NAF.schemas.add(avatarSchema);
+    </script>
+
+    <script>
+      function onConnected(){
+      }
+
+      AFRAME.registerComponent('foo',{
+        init:function(){
+        let playerEl = document.createElement('a-entity');
+        playerEl.setAttribute('id','player');
+        playerEl.setAttribute('networked','template','#avatar-template');
+        playerEl.setAttribute('networked','showLocalTemplate','false');
+        playerEl.setAttribute('camera','');
+        playerEl.setAttribute('cursor','');
+        playerEl.setAttribute('wasd-controls','');
+        playerEl.setAttribute('look-controls','');
+        setTimeout(function(){
+        let scene = document.querySelector('a-scene');
+        console.log(NAF.entities.entities);
+        console.log(Object.keys(NAF.entities.entities));
+        let playerNumber = Object.keys(NAF.entities.entities).length;
+        console.log(playerNumber);
+
+        //let player = document.querySelector('#player');
+
+        if(playerNumber==0){
+          playerEl.setAttribute('position','-1 1.6 -1');
+          playerEl.setAttribute('rotation','0 -90 0');
+        }else if(playerNumber==1){
+          playerEl.setAttribute('position','1 1.6 -1');
+          playerEl.setAttribute('rotation','0 90 0');
+        }else{
+          playerEl.setAttribute('position','3 1.6 -1');
+          playerEl.setAttribute('rotation','0 0 0');
+        }
+        scene.appendChild(playerEl);
+      },3000);
+
+        }
+      })
+    </script>
+  </head>
+
+
+
+  <body>
+
+    <a-scene networked-scene="
+      room: audio;
+      debug: true;
+      adapter: easyrtc;
+      onConnect: onConnected;
+      audio: true;
+    " foo>
+      <a-assets>
+
+        <img id="grid" src="https://img.gs/bbdkhfbzkk/stretch/https://i.imgur.com/25P1geh.png" crossorigin="anonymous">
+        <img id="sky" src="https://img.gs/bbdkhfbzkk/2048x2048,stretch/http://i.imgur.com/WqlqEkq.jpg" crossorigin="anonymous" />
+
+        <!-- Templates -->
+
+        <!-- Avatar -->
+        <script id="avatar-template" type="text/html">
+          <a-entity class="avatar" networked-audio-source>
+            <a-sphere class="head"
+              color="#5985ff"
+              scale="0.45 0.5 0.4"
+              random-color
+            ></a-sphere>
+            <a-entity class="face"
+              position="0 0.05 0"
+            >
+              <a-sphere class="eye"
+                color="#efefef"
+                position="0.16 0.1 -0.35"
+                scale="0.12 0.12 0.12"
+              >
+                <a-sphere class="pupil"
+                  color="#000"
+                  position="0 0 -1"
+                  scale="0.2 0.2 0.2"
+                ></a-sphere>
+              </a-sphere>
+              <a-sphere class="eye"
+                color="#efefef"
+                position="-0.16 0.1 -0.35"
+                scale="0.12 0.12 0.12"
+              >
+                <a-sphere class="pupil"
+                  color="#000"
+                  position="0 0 -1"
+                  scale="0.2 0.2 0.2"
+                ></a-sphere>
+              </a-sphere>
+            </a-entity>
+          </a-entity>
+        </script>
+
+        <!-- /Templates -->
+      </a-assets>
+
+      <!-- BUTTON get new prompt -->
+      <a-entity id="get-prompt-button" geometry="primitive: box" material="color: green" position="-.5 2.8 -2.9" scale="1.5 .5 .01">
+      </a-entity>
+      <a-text id='get-new-prompt-text' value="Get A New Prompt" color="black" position="-1 2.8 -2.8" scale=".5 .5 .5"></a-text>
+      <!-- prompt text -->
+      <a-entity>
+        <a-box color="black" position="2 2.3 -3.1" scale="4 2.3 .01" opacity=".5"></a-box>
+        <a-text id='do-that' color="#BBB" position=".5 2.3 -3" scale=".5 .5 .5"></a-text>
+      </a-entity>
+
+      <a-entity position="0 0 0"
+        geometry="primitive: plane; width: 10000; height: 10000;" rotation="-90 0 0"
+        material="src: #grid; repeat: 10000 10000; transparent: true; metalness:0.6; roughness: 0.4; sphericalEnvMap: #sky;"></a-entity>
+
+      <a-entity light="color: #ccccff; intensity: 1; type: ambient;" visible=""></a-entity>
+      <a-entity light="color: #ffaaff; intensity: 1.5" position="5 5 5"></a-entity>
+      <!--<a-entity id="player" networked="template:#avatar-template;showLocalTemplate:false;" camera wasd-controls look-controls></a-entity>-->
+      <a-sky src="#sky" rotation="0 -90 0"></a-sky>
+    </a-scene>
+
+    <!-- <script>
+      // On mobile remove elements that are resource heavy
+      var isMobile = AFRAME.utils.device.isMobile();
+
+      if (isMobile) {
+        var particles = document.getElementById('particles');
+        particles.parentNode.removeChild(particles);
+      } -->
+    </script>
+  </body>
+</html>
