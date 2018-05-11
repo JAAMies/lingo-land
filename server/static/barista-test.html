@@ -12,6 +12,7 @@
     <script src="https://unpkg.com/aframe-particle-system-component@1.0.5/dist/aframe-particle-system-component.min.js"></script>
     <script src="/js/spawn-in-circle.component.js"></script>
 
+    <script src=https://wzrd.in/standalone/uuid@3></script>
     <script src='./js/reposition.js'></script>
     <script src='./js/baristaRequest.js'></script>
   </head>
@@ -70,9 +71,9 @@
         <!-- /Templates -->
       </a-assets>
 
-      <a-entity id="player" 
-          networked="template:#avatar-template;attachTemplateToLocal:false;" 
-          camera="userHeight: 2.6" 
+      <a-entity id="player"
+          networked="template:#avatar-template;attachTemplateToLocal:false;"
+          camera="userHeight: 2.6"
           wasd-controls look-controls>
         <a-sphere class="head"
           visible="false"
@@ -89,7 +90,7 @@
 
       <a-sky src="#sky" rotation="0 -90 0"></a-sky>
       <a-entity id="particles" particle-system="preset: snow"></a-entity>
-    
+
 
         <a-camera>
           <a-cursor></a-cursor>
@@ -97,7 +98,7 @@
 <!-- __________________________________________________________________  BARISTA TEST STARTS -->
 
 
-        <a-entity 
+        <a-entity
         id="barista"
         geometry="primitive: box; width: 1; height: 1"
         material="color: red"

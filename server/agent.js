@@ -4,7 +4,7 @@ module.exports = router
 
 // You can find your project ID in your Dialogflow agent settings
 const projectId = 'barista-bot-5425c'; //https://dialogflow.com/docs/agents#settings
-const sessionId = 'quickstart-session-id';
+const sessionId = 'quickstart-session-id-x';
 const languageCode = 'Spanish-es';
 
 // Instantiate a DialogFlow client.
@@ -13,11 +13,10 @@ const dialogflow = require('dialogflow');
 const sessionClient = new dialogflow.SessionsClient({ keyFilename: './Barista-Bot-4bab6ebe4a92.json' });
 
 // Define session path
-const sessionPath = sessionClient.sessionPath(projectId, sessionId);
 //-------------------------------------------------------------------   NEW STARTS
 
-router.put('/', (req, res, next) => {
-
+router.put('/:sessionId', (req, res, next) => {
+  const sessionPath = sessionClient.sessionPath(projectId, sessionId);
   const query = req.body.usersays;
   console.log("OUR BODY IS...", typeof req.body)
   const request = {
