@@ -4,7 +4,7 @@ var express = require("express");           // web framework external module
 var serveStatic = require('serve-static');  // serve static files
 var socketIo = require("socket.io");        // web socket external module
 var easyrtc = require("easyrtc");               // EasyRTC external module
-
+const bodyParser = require('body-parser')
 // Set process name
 process.title = "node-easyrtc";
 
@@ -13,8 +13,11 @@ var port = process.env.PORT || 8080;
 
 // Setup and configure Express http server. Expect a subfolder called "static" to be the web root.
 var app = express();
-app.use(serveStatic('server/static', { 'index': ['index.html'] }));
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
 
+app.use('/barista', require('./agent'))
+app.use(serveStatic('server/static', { 'index': ['index.html'] }));
 // Start Express http server
 var webServer = http.createServer(app);
 

@@ -11,10 +11,15 @@
   "license": "ISC",
   "dependencies": {
     "aframe": "^0.8.2",
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.2",
+    "dialogflow": "^0.4.0",
     "easyrtc": "^1.1.0",
     "express": "^4.16.3",
     "networked-aframe": "^0.6.1",
+    "npm": "^6.0.1",
     "socket.io": "^2.1.0",
-    "three.js": "^0.77.1"
+    "three.js": "^0.77.1",
+    "uuid": "^3.2.1"
   }
 }
