@@ -111,8 +111,8 @@
         />
 
         <!-- ARMCHAIRS - currently raccoons, needs to be replaced -->
-        <a-asset-item id="raccoon-obj" src="./assets/Raccoon_Blocks/model.obj"></a-asset-item>
-        <a-asset-item id="raccoon-mtl" src="./assets/Raccoon_Blocks/materials.mtl"></a-asset-item>
+        <a-asset-item id="chair-obj" src="./assets/armchairs/Chair6.obj"></a-asset-item>
+        <a-asset-item id="chair-mtl" src="./assets/armchairs/Chair6.mtl"></a-asset-item>
 
         <!-- Templates -->
 
@@ -157,14 +157,14 @@
       </a-assets>
 
       <!-- ARMCHAIRS currently raccoons, needs to be replaced-->
-      <a-entity
-        obj-model="obj: #raccoon-obj; mtl: #raccoon-mtl"
+      <a-entity id="chair"
+        obj-model="obj: #chair-obj; mtl: #chair-mtl"
         position="-.75 1 -1"
         scale="5 5 5"
         rotation="0 -90 0"
       ></a-entity>
-      <a-entity
-        obj-model="obj: #raccoon-obj; mtl: #raccoon-mtl"
+      <a-entity id="chair2"
+        obj-model="obj: #chair-obj; mtl: #chair-mtl"
         position="1.25 1 -1"
         scale="5 5 5"
         rotation="0 90 0"
