@@ -32,16 +32,19 @@
         <a-asset-item id="raccoon-obj" src="./assets/Raccoon_Blocks/model.obj"></a-asset-item>
         <a-asset-item id="raccoon-mtl" src="./assets/Raccoon_Blocks/materials.mtl"></a-asset-item>
 
-        <a-asset-item id="diner-obj" src="./assets/lingo-assets/cafe/cafe.obj"></a-asset-item>
-        <a-asset-item id="diner-mtl" src="./assets/lingo-assets/cafe/cafe.mtl"></a-asset-item> 
+        <a-asset-item id="diner-mtl" src="./cafe.mtl"></a-asset-item> 
+        <a-asset-item id="diner-obj" src="./cafe.obj"></a-asset-item>
 
-
+        <a-asset-item id="deck-obj" src="./deck.obj"></a-asset-item>
+        <a-asset-item id="menu-frame-obj" src="./menu-frame.obj"></a-asset-item>
+        <a-asset-item id="facad-obj" src="./facad.obj"></a-asset-item>
         <!-- PEOPLE -->
         <a-asset-item id="jack-obj" src="./assets/lingo-assets/people/Jack/human_male.obj"></a-asset-item>
         <a-asset-item id="jack-mtl" src="./assets/lingo-assets/people/Jack/human_male.mtl"></a-asset-item>
 
         <a-asset-item id="scott-obj" src="./assets/lingo-assets/people/Scott/model__0.obj"></a-asset-item>
         <a-asset-item id="scott-mtl" src="./assets/lingo-assets/people/Scott/model__0.mtl"></a-asset-item>
+
         
         <!-- Templates -->
         <!-- Avatar -->
@@ -57,17 +60,21 @@
       <a-entity id="player" class="heads" 
             networked="template:#avatar-template;attachTemplateToLocal:false;" 
             camera="userHeight: 3" 
-            spawn-in-circle="radius:2;" 
-            wasd-controls look-controls></a-entity>
+            position='5 0 0' rotation='0 -90 0'
+            wasd-controls look-controls>
+            <a-cursor></a-cursor>
+      </a-entity>
       
       <!-- BUILDINGS -->
-      <a-entity obj-model="mtl: #diner-mtl; obj: #diner-obj" position="16 0 0" rotation="0 90 0"></a-entity>
-      
+      <a-entity obj-model="obj: #diner-obj" position="16 0 0" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: #deck-obj" position="16 0 0" rotation="0 90 0" material="src: Menu.jpg; repeat: 1 1"></a-entity>
+      <a-entity obj-model="obj: #menu-frame-obj" position="16 0 0" rotation="0 90 0" material="src: Frame1.jpg; repeat: 1 1"></a-entity>
+      <a-entity obj-model="obj: #facad-obj" position="16 0 0" rotation="0 90 0" material="src: Brick-Wall_1.jpg; repeat: 8 8; side:double"></a-entity>
       <!-- PEOPLE -->
-      <a-entity obj-model="obj: #jack-obj; mtl: #jack-mtl" position="23.5 0 3" scale="0.0021 0.0021 0.0021" rotation="0 -90 0"></a-entity>
+      <!-- <a-entity obj-model="obj: #jack-obj; mtl: #jack-mtl" position="23.5 0 3" scale="0.0021 0.0021 0.0021" rotation="0 -90 0"></a-entity>
       <a-entity obj-model="obj: #scott-obj; mtl: #scott-mtl" position="23.3 0 0" scale="0.00205 0.00205 0.00205" rotation="-90 180 0"
           id='barista' barista-request></a-entity>
-      
+       -->
 
     </a-scene>
       <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/ Scene end -->
