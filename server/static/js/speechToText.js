@@ -15,23 +15,6 @@ var vocabWords = new Set([
   "el horno"
 ]);
 
-// var vocabWords = {
-//   "los libros": true,
-//   "la tele": true,
-//   "la casa": true,
-//   "la puerta": true,
-//   "la cama": true,
-//   "el armario": true,
-//   "la ventana": true,
-//   "la mesa": true,
-//   "las cortinas": true,
-//   "el ordenador": true,
-//   "el sofa": true,
-//   "la mesa de comedor": true,
-//   "el reloj": true,
-//   "el horno": true
-// }
-
 var r = document.getElementById("speech-recognition");
 
 // function startConverting() {
