@@ -25,7 +25,7 @@
         <!-- Image link template to be reused. -->
         <script id="link" type="text/html">
           <a-entity class="link"
-            geometry="primitive: plane; height: 1; width: 1"
+            geometry="primitive: plane; height: 2; width: 2"
             material="shader: flat; src: ${thumb}"
             event-set__1="_event: mousedown; scale: 1 1 1"
             event-set__2="_event: mouseup; scale: 1.2 1.2 1"
@@ -40,7 +40,7 @@
       <a-sky id="image-360" radius="10" src="#city"></a-sky>
 
       <!-- Image links. -->
-      <a-entity id="links" layout="type: line; margin: 1.5" position="0 -1 -4">
+      <a-entity id="links" layout="type: line; margin: 3" position="-3 -1 -4">
         <a-entity template="src: #link" data-src="#cubes" data-thumb="#cubes-thumb"></a-entity>
         <a-entity template="src: #link" data-src="#city" data-thumb="#city-thumb"></a-entity>
         <a-entity template="src: #link" data-src="#sechelt" data-thumb="#sechelt-thumb"></a-entity>
