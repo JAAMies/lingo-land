@@ -1,13 +1,8 @@
 <html>
   <head>
     <meta charset="utf-8">
-<<<<<<< HEAD
-    <title>LingoLand Cafe</title>
-    <meta name="description" content="LingoLand Cafe">
-=======
     <title>Lingo Cafe</title>
     <meta name="description" content="Lingo Cafe">
->>>>>>> 614551ad65e4ac52b3b28bef1197d185549dee12
     
     <script src=https://wzrd.in/standalone/uuid@3></script>
     <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
@@ -19,10 +14,12 @@
     <script src="https://unpkg.com/aframe-randomizer-components@^3.0.1/dist/aframe-randomizer-components.min.js"></script>
     <script src="https://unpkg.com/aframe-particle-system-component@1.0.5/dist/aframe-particle-system-component.min.js"></script>
     <script src="/js/spawn-in-circle.component.js"></script>
-    <script src='./js/baristaRequest.js'></script>
+    <!-- <script src='./js/baristaRequest.js'></script> -->
     <!-- script for movement -->
     <script src='./js/reposition.js'></script>
     <script src='./js/moveIntoCafe.js'></script>
+    <!-- convo script -->
+    <script src='./js/initateConvo.js' defer></script>
     <!-- add preset forest scene -->
     <script src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
   </head>
@@ -42,9 +39,9 @@
         <a-asset-item id="diner-mtl" src="./assets/lingo-assets/cafe/cafe.mtl"></a-asset-item> 
         <a-asset-item id="diner-obj" src="./assets/lingo-assets/cafe/cafe.obj"></a-asset-item>
 
-        <a-asset-item id="deck-obj" src="./assets/lingo-assets/cafe/deck.obj"></a-asset-item>
+        <!-- <a-asset-item id="deck-obj" src="./assets/lingo-assets/cafe/deck.obj"></a-asset-item>
         <a-asset-item id="menu-frame-obj" src="./assets/lingo-assets/cafe/menu-frame.obj"></a-asset-item>
-        <a-asset-item id="facad-obj" src="./assets/lingo-assets/cafe/facad.obj"></a-asset-item>
+        <a-asset-item id="facad-obj" src="./assets/lingo-assets/cafe/facad.obj"></a-asset-item> -->
 
         
         <!-- PEOPLE -->
@@ -77,17 +74,15 @@
       <!-- BUILDINGS -->
       <a-entity obj-model="obj: #diner-obj" position="16 0 0" rotation="0 90 0"></a-entity>
       <!--  OBJECT   -->
-      <a-entity obj-model="obj: #deck-obj" position="16 0 0" rotation="0 90 0" material="src: ./assets/lingo-assets/cafe/Menu.jpg; repeat: 1 1"></a-entity>
+      <!-- <a-entity obj-model="obj: #deck-obj" position="16 0 0" rotation="0 90 0" material="src: ./assets/lingo-assets/cafe/Menu.jpg; repeat: 1 1"></a-entity>
       <a-entity obj-model="obj: #menu-frame-obj" position="16 0 0" rotation="0 90 0" material="src: ./assets/lingo-assets/cafe/Frame1.jpg; repeat: 1 1"></a-entity>
-      <a-entity obj-model="obj: #facad-obj" position="16 0 0" rotation="0 90 0" material="src: ./assets/lingo-assets/cafe/Brick-Wall_1.jpg; repeat: 8 8; side:double"></a-entity>
+      <a-entity obj-model="obj: #facad-obj" position="16 0 0" rotation="0 90 0" material="src: ./assets/lingo-assets/cafe/Brick-Wall_1.jpg; repeat: 8 8; side:double"></a-entity> -->
       
       <!-- PEOPLE -->
       <a-entity obj-model="obj: #jack-obj; mtl: #jack-mtl" position="23.5 0 3" scale="0.0021 0.0021 0.0021" rotation="0 -90 0"></a-entity>
       <a-entity obj-model="obj: #scott-obj; mtl: #scott-mtl" position="23.3 0 0" scale="0.00205 0.00205 0.00205" rotation="-90 180 0"
-          id='barista' barista-request></a-entity>
-      <!-- Cursor for movement -->
-      <a-camera><a-cursor></a-cursor></a-camera>
-
+          ></a-entity>
+      <a-entity id='barista' geometry='primitive: box; width: 2; height: 2' position='23.3 3 0'material='color: red' visible= 'false'></a-entity>
       <!-- Movement -->
       <!-- outside 1 -->
       <a-entity 
