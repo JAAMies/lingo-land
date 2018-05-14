@@ -48,8 +48,10 @@ function startConverting() {
             .then(response => response.json())
             .then(response => {
                 response = response.toString().toLowerCase();
-                if (response.includes('gracias')) speechRecognizer.stop();
-                else speak(response);
+                if (response.includes('gracias')) {
+                    speak(response);
+                    speechRecognizer.stop();
+                } else speak(response);
             })
             .catch(error => console.error('Error:', error))
     }
