@@ -58,11 +58,12 @@ function startConverting() {
 
 AFRAME.registerComponent('barista-request', {
   init() {
+    console.log('listening for convo ----->')
     this.recognizer = startConverting();
-    let barista = document.getElementById('barista');
-    barista.addEventListener('click', function () {
-      // this.setAttribute('material', 'color:green')
-    })
+    // let barista = document.getElementById('barista');
+    // barista.addEventListener('click', function () {
+    //   // this.setAttribute('material', 'color:green')
+    // })
   },
 
   remove() {
