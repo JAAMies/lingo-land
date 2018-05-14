@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Logo</title>
+    <meta name="description" content="Logo">
+
+    <script src="https://aframe.io/releases/0.6.0/aframe.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
+    <script src="easyrtc/easyrtc.js"></script>
+    <script src="https://unpkg.com/networked-aframe@^0.5.0/dist/networked-aframe.min.js"></script>
+
+    <script src="https://unpkg.com/aframe-randomizer-components@^3.0.1/dist/aframe-randomizer-components.min.js"></script>
+    <script src="https://unpkg.com/aframe-particle-system-component@1.0.5/dist/aframe-particle-system-component.min.js"></script>
+  </head>
+
+
+  <body>
+
+    <a-scene>
+      <a-assets>
+        <a-asset-item id="earth-obj" src="./assets/dimensionalEarth/earth.obj"></a-asset-item>
+        <a-asset-item id="earth-mtl" src="./assets/dimensionalEarth/earth.mtl"></a-asset-item>
+      </a-assets>
+
+      <a-text
+        value="Ling"
+        position="-6 1.4 -5"
+        scale="11 11 11"
+        color="black"
+        font="exo2bold"
+      ></a-text>
+
+      <a-entity id="earth"
+        obj-model="obj: #earth-obj; mtl: #earth-mtl"
+        position="0 .1 -5"
+        scale=".0027 .0027 .0027"
+        >
+        <a-animation
+          attribute="rotation"
+          dur="6000"
+          to="0 -360 0"
+          repeat="indefinite"
+          easing="linear"
+        ></a-animation>
+      </a-entity>
+
+      <a-text
+        value="Land"
+        position="1.2 1.4 -5"
+        scale="11 11 11"
+        color="black"
+        font="exo2bold"
+      ></a-text>
+
+    </a-scene>
+
+  </body>
+</html>
