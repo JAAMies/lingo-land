@@ -14,8 +14,10 @@ async function speak(text) {
 
 
 var elBox = document.getElementById("books");
-var boxes = Array.from(document.getElementsByClassName("boxes"))
-var texts = Array.from(document.getElementsByClassName("texts"))
+var boxes = Array.from(document.getElementsByClassName("boxes"));
+var texts = Array.from(document.getElementsByClassName("texts"));
+var cursor = document.getElementById('cursor');
+
 
 //event listener for writing object's name
 boxes.forEach(box => box.addEventListener('click', (e) => {
@@ -31,10 +33,13 @@ boxes.forEach(box => box.addEventListener('click', (e) => {
 
 //event listener for highlighting area
 boxes.forEach(box => box.addEventListener('mouseenter', (e) => {
-    box.setAttribute("opacity", "0.5")
+    box.setAttribute("opacity", "0.5");
+    cursor.setAttribute('material', 'color: red; shader: flat');
 }));
 
 //event listener for unhighlighting area
 boxes.forEach(box => box.addEventListener('mouseleave', (e) => {
-    box.setAttribute("opacity", "0")
+    box.setAttribute("opacity", "0");
+    cursor.setAttribute('material', 'color: black; shader: flat');
 }));
+
