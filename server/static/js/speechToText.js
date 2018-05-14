@@ -15,6 +15,23 @@ var vocabWords = new Set([
   "el horno"
 ]);
 
+// var vocabWords = {
+//   "los libros": true,
+//   "la tele": true,
+//   "la casa": true,
+//   "la puerta": true,
+//   "la cama": true,
+//   "el armario": true,
+//   "la ventana": true,
+//   "la mesa": true,
+//   "las cortinas": true,
+//   "el ordenador": true,
+//   "el sofa": true,
+//   "la mesa de comedor": true,
+//   "el reloj": true,
+//   "el horno": true
+// }
+
 var r = document.getElementById("speech-recognition");
 
 // function startConverting() {
@@ -31,7 +48,7 @@ if ("webkitSpeechRecognition" in window) {
     var transcript = "";
     for (let i = event.resultIndex; i < event.results.length; i++) {
       if (event.results[i].isFinal) {
-        transcript += event.results[i][0].transcript;
+        transcript = event.results[i][0].transcript.trim();
         console.log("transcript", transcript);
         console.log("has or not", vocabWords.has(transcript));
         if (vocabWords.has(transcript)) {
