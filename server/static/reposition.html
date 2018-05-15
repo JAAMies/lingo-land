@@ -78,6 +78,7 @@
           visible="false"
           random-color
         ></a-sphere>
+        <a-cursor></a-cursor>
       </a-entity>
 
       <a-entity position="0 0 0"
@@ -101,10 +102,26 @@
         </a-entity>
 
 
+        <a-entity
+        geometry="primitive: circle; radiusInner: 0.5; radiusOuter: 0.7"
+        material="side: double; color: green"
+        rotation="90 0 0"
+        position="0 0 -10"
+        reposition-on-click >
+        <a-animation attribute="position" to="0 0.1 -10" direction="alternate" dur="1000"
+        repeat="indefinite"></a-animation>
+      </a-entity>
 
-        <a-camera>
-          <a-cursor></a-cursor>
-        </a-camera>
+      <a-entity
+      geometry="primitive: circle; radiusInner: 0.5; radiusOuter: 0.7"
+      material="side: double; color: red"
+      rotation="90 0 0"
+      position="5 0 -10"
+      reposition-on-click >
+      <a-animation attribute="position" to="5 0.1 -10" direction="alternate" dur="1000"
+      repeat="indefinite"></a-animation>
+    </a-entity>
+
     </a-scene>
 
     <!-- GitHub Corner. -->
