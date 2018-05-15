@@ -4,35 +4,35 @@ const PROMPTS = [
         setting: 'sitting next to you',
         verb: 'show',
         subject: 'around campus',
-        wordBank: ['estudiante de intercambio', 'nombre', 'de donde eres', 'donde esta', 'clase', 'profesor', 'campus', 'el café', 'residencia universitaria', 'biblioteca' ]
+        wordBank: ['estudiante de intercambio', 'nombre', 'de donde eres', 'donde esta', 'clase', 'profesor', 'campus', 'el cafe', 'residencia universitaria', 'biblioteca' ]
     },
     {
         character1: 'tourist',
         setting: 'standing next to you at the bus stop',
         verb: 'help',
         subject: 'navigate the city',
-        wordBank: ['turista', 'nombre', 'de donde eres', 'donde esta', 'el museo', 'el teatro', 'el campus', 'el café', 'el hotel', 'el restaurante', 'el autobús', 'el tren', 'el avion', 'sube al autobús', 'bajar del autobús', 'girar a la izquierda', 'girar a la derecha' ]
+        wordBank: ['turista', 'nombre', 'de donde eres', 'donde esta', 'el museo', 'el teatro', 'el campus', 'el cafe', 'el hotel', 'el restaurante', 'el autobus', 'el tren', 'el avion', 'sube al autobus', 'bajar del autobus', 'girar a la izquierda', 'girar a la derecha' ]
     },
     {
         character1: 'good-looking single man/woman',
         setting: 'next to you',
         verb: 'join',
         subject: 'for a cup of coffee',
-        wordBank: ['guapo/a', 'bonito/a', 'hermoso/a', 'lindo/a', 'chulo/a', 'salir en una cita', 'beber café', 'conmigo', 'tu teléfono', 'llámame', 'te quiero']
+        wordBank: ['guapo/a', 'bonito/a', 'hermoso/a', 'lindo/a', 'chulo/a', 'salir en una cita', 'beber cafe', 'conmigo', 'tu telefono', 'llamame', 'te quiero']
     },
     {
         character1: 'stranger in a new city',
         setting: 'next to you in line at the cafe',
         verb: 'recommend',
         subject: 'something the locals like to eat',
-        wordBank: ['cuidad', 'el restaurante', 'comida local/cultural']
+        wordBank: ['cuidad', 'el restaurante', 'comida local/cultural', 'arroz con pollo']
     },
     {
         character1: 'lost passenger',
         setting: 'in the seat next to you',
         verb: 'direct',
         subject: 'the hotel',
-        wordBank: ['pasajero', 'perdido', 'dónde está', 'el hotel']
+        wordBank: ['pasajero', 'perdido', 'donde está', 'el hotel']
     },
 ];
 

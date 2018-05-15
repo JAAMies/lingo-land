@@ -10,7 +10,6 @@
     <script src="https://unpkg.com/networked-aframe@^0.5.0/dist/networked-aframe.min.js"></script>
 
     <script src="https://unpkg.com/aframe-randomizer-components@^3.0.1/dist/aframe-randomizer-components.min.js"></script>
-    <script src="https://unpkg.com/aframe-particle-system-component@1.0.5/dist/aframe-particle-system-component.min.js"></script>
     <script src="/js/spawn-in-circle.component.js"></script>
 
 
@@ -59,12 +58,12 @@
 
             if(playerNumber==0){
               playerEl.setAttribute('position','-1 1.6 -1');
-              playerEl.setAttribute('rotation','0 -90 0');
+              playerEl.setAttribute('rotation','0 -135 0');
               // cameraPlayer.setAttribute('position','-1 1.6 -1');
               // cameraPlayer.setAttribute('rotation','0 -90 0');
             }else if(playerNumber==1){
               playerEl.setAttribute('position','1 1.6 -1');
-              playerEl.setAttribute('rotation','0 90 0');
+              playerEl.setAttribute('rotation','0 135 0');
               // cameraPlayer.setAttribute('position','1 1.6 -1');
               // cameraPlayer.setAttribute('rotation','0 90 0');
             }else{
@@ -100,19 +99,14 @@
 
       <a-assets>
 
-        <img
-          id="grid"
-          src="https://img.gs/bbdkhfbzkk/stretch/https://i.imgur.com/25P1geh.png"
-          crossorigin="anonymous"
-        />
-        <img
-          id="sky"
-          src="https://img.gs/bbdkhfbzkk/2048x2048,stretch/http://i.imgur.com/WqlqEkq.jpg" crossorigin="anonymous"
-        />
+        <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
 
         <!-- ARMCHAIRS -->
-        <a-asset-item id="armchair-obj" src="./assets/lingo-assets/armchairs/arm-chair.obj"></a-asset-item>
+        <!-- <a-asset-item id="armchair-obj" src="./assets/lingo-assets/armchairs/arm-chair.obj"></a-asset-item> -->
         <!-- <a-asset-item id="armchair-mtl" src="./assets/lingo-assets/armchairs/arm-chair.mtl"></a-asset-item> -->
+
+        <a-asset-item id="chair-obj" src="./assets/chair/chair.obj"></a-asset-item>
+        <a-asset-item id="chair-mtl" src="./assets/chair/chair.mtl"></a-asset-item>
 
         <!-- Templates -->
 
@@ -156,44 +150,42 @@
 
       </a-assets>
 
-      <!-- ARMCHAIRS currently raccoons, needs to be replaced-->
-      <a-entity id="armchair"
-        obj-model="obj: #armchair-obj; mtl: #armchair-mtl"
+      <!-- ARMCHAIRS - not rendering -->
+      <a-entity id="chair"
+        obj-model="obj: #chair-obj; mtl: #chair-mtl"
         position="-1 0 -1"
         rotation="0 90 0"
-        scale=".75 .75 .75"
-        material='color:#61AFCA'
+        scale="10 10 10"
       ></a-entity>
-      <a-entity id="armchair2"
-        obj-model="obj: #armchair-obj; mtl: #armchair-mtl"
+      <a-entity id="chair2"
+        obj-model="obj: #chair-obj; mtl: #chair-mtl"
         position="1 0 -1"
         rotation="0 -90 0"
-        scale=".75 .75 .75"
-        material='color:#61AFCA'
+        scale="1 1 1"
       ></a-entity>
 
 
       <!-- PROMPT-->
       <a-entity
-        position="5 .5 3"
-        rotation="0 -90 0"
+        position="-3.5 -.5 6"
+        rotation="0 180 0"
       >
         <a-box id="get-prompt-button"
           color="green"
-          position="-5.5 1 3"
+          position="-3 1 3"
           scale="1.5 .5 .01"
         ></a-box>
         <a-text id='get-new-prompt-text'
           value="Get A New Prompt"
-          color="black"
-          position="-6 1 3.1"
+          color="white"
+          position="-3.5 1 3.1"
           scale=".5 .5 .5"
         ></a-text>
         <a-box
           color="black"
           position="-3 2.3 3"
           scale="4 2.3 .01"
-          opacity=".5"
+          opacity=".85"
         ></a-box>
         <a-text id='do-that'
           color="#BBB"
@@ -202,45 +194,7 @@
         ></a-text>
       </a-entity>
 
-      <a-entity
-      position="-7 .5 -3"
-      rotation="0 90 0"
-      >
-      <a-box id="get-prompt-button"
-        color="green"
-        position="-5.5 1 3"
-        scale="1.5 .5 .01"
-      ></a-box>
-      <a-text id='get-new-prompt-text'
-        value="Get A New Prompt"
-        color="black"
-        position="-6 1 3.1"
-        scale=".5 .5 .5"
-      ></a-text>
-      <a-box
-        color="white"
-        position="-3 2.3 3"
-        scale="4 2.3 .01"
-        opacity=".5"
-      ></a-box>
-      <a-text id='do-that'
-        color="black"
-        position="-4.5 2.3 -3.1"
-        scale=".5 .5 .5"
-      ></a-text>
-    </a-entity>
-
-      <a-entity
-        position="0 0 0"
-        geometry="primitive: plane; width: 10000; height: 10000;"
-        rotation="-90 0 0"
-        material="src: #grid; repeat: 10000 10000; transparent: true; metalness:0.6; roughness: 0.4; sphericalEnvMap: #sky;"
-      ></a-entity>
-
-      <a-entity light="color: #ccccff; intensity: 1; type: ambient;" visible=""></a-entity>
-      <a-entity light="color: #ffaaff; intensity: 1.5" position="5 5 5"></a-entity>
-
-      <a-sky src="#sky" rotation="0 -90 0"></a-sky>
+    <a-entity environment="preset: forest; dressingAmount: 500"></a-entity>
 
     </a-scene>
 
