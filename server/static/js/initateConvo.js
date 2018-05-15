@@ -1,16 +1,18 @@
-var r = document.getElementById('result');
-
-async function speak(text) {
+async function speak(text, vox) {
   var msg = new SpeechSynthesisUtterance();
   msg.lang = 'es-ES'
   console.log(msg)
   msg.text = text;
-  msg.voice = await speechSynthesis.getVoices().find((voice) => voice.name == "Jorge");
-  console.log("msg.voice", msg.voice)
-  window.speechSynthesis.speak(msg);
+  speechSynthesis.getVoices();
+  if (speechSynthesis.onvoiceschanged !== undefined) {
+    speechSynthesis.onvoiceschanged = () => {
+      msg.voice = speechSynthesis.getVoices().find((voice) => voice.name === vox);
+      window.speechSynthesis.speak(msg);
+    }
+  }
 }
 
-function startConverting() {
+function startConverting(bot) {
   console.log('start converting ----------> ')
   if (!('webkitSpeechRecognition' in window)) return
 
@@ -22,7 +24,7 @@ function startConverting() {
   speechRecognizer.lang = 'es-ES';
   speechRecognizer.start();
 
-  speechRecognizer.onresult = function(event) {
+  speechRecognizer.onresult = function (event) {
     console.log('speech result', event)
 
     var usersays = ''
@@ -38,20 +40,21 @@ function startConverting() {
     })
 
     console.log('body:', body)
-    fetch(`/barista/${sessionId}`, {
-        method: 'PUT',
-        body,
-        headers: new Headers({
-          'Content-Type': 'application/json'
-        })
+    var vox = bot === 'barista' ? 'Jorge' : 'Paulina';
+    fetch(`/${bot}/${sessionId}`, {
+      method: 'PUT',
+      body,
+      headers: new Headers({
+        'Content-Type': 'application/json'
       })
+    })
       .then(response => response.json())
       .then(response => {
         response = response.toString().toLowerCase();
-        if (response.includes('gracias')) {
-          speak(response);
+        if (response.includes('gracias') || response.includes('adios')) {
+          speak(response, vox);
           speechRecognizer.stop();
-        } else speak(response);
+        } else speak(response, vox);
       })
       .catch(error => console.error('Error:', error))
   }
@@ -60,7 +63,9 @@ function startConverting() {
 }
 
 document.getElementById('barista').addEventListener('click', () => {
-  startConverting();
-  document.getElementById('barista').setAttribute('material', 'color:green')
-  document.getElementById('initiate-convo-text').setAttribute('value', 'SPEAK')
+  startConverting('barista');
+})
+
+document.getElementById('stanger').addEventListener('click', () => {
+  startConverting('stanger');
 })
