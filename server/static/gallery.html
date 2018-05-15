@@ -18,9 +18,9 @@
         <img id="city-thumb" crossorigin="anonymous" src="./lingo-cafe.jpg">
         <img id="cubes-thumb" crossorigin="anonymous" src="./lingo-house.jpg">
         <img id="sechelt-thumb" crossorigin="anonymous" src="./SIT-N-CHAT.jpg">
-<!--         <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio> -->
-<!--         <img id="cubes" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/cubes.jpg">
-        <img id="sechelt" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg"> -->
+        <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
+        <img id="cubes" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/cubes.jpg">
+        <img id="sechelt" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">
 
         <!-- Image link template to be reused. -->
         <script id="link" type="text/html">
@@ -41,10 +41,20 @@
 
       <!-- Image links. -->
       <a-entity id="links" layout="type: line; margin: 3" position="-3 -1 -4">
-        <a-entity template="src: #link" data-src="#cubes" data-thumb="#cubes-thumb"></a-entity>
-        <a-entity template="src: #link" data-src="#city" data-thumb="#city-thumb"></a-entity>
-        <a-entity template="src: #link" data-src="#sechelt" data-thumb="#sechelt-thumb"></a-entity>
+        <a-entity id="lingo-house" template="src: #link" data-src="#cubes" data-thumb="#cubes-thumb"></a-entity>
+        <a-entity id="lingo-cafe" template="src: #link" data-src="#city" data-thumb="#city-thumb"></a-entity>
+        <a-entity id="positions2" template="src: #link" data-src="#sechelt" data-thumb="#sechelt-thumb"></a-entity>
       </a-entity>
+
+      <script>
+        var array = ["#lingo-house", "lingo-cafe", "positions2"]
+        var lightswitchEl = document.querySelector('#lightswitch');
+        lightswitchEl.addEventListener('gamepadbuttondown:7', function () {
+          console.log('button pressed!');
+        });
+        console.log("doc location", document.location)
+        // document.location.pathname = "/lingo-house.html"
+      </script>
 
       <!-- Camera + cursor. -->
       <a-entity camera look-controls>

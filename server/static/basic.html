@@ -70,9 +70,15 @@
         <!-- /Templates -->
       </a-assets>
 
-      <a-entity id="player" 
-          networked="template:#avatar-template;attachTemplateToLocal:false;" 
-          camera="userHeight: 2.6" 
+      <iframe
+        width="350"
+        height="430"
+        src="https://console.dialogflow.com/api-client/demo/embedded/6976b25d-dd92-4969-8d3d-39bb993bf552">
+      </iframe>
+
+      <a-entity id="player"
+          networked="template:#avatar-template;attachTemplateToLocal:false;"
+          camera="userHeight: 2.6"
           wasd-controls look-controls>
         <a-sphere class="head"
           visible="false"
@@ -89,7 +95,7 @@
 
       <a-sky src="#sky" rotation="0 -90 0"></a-sky>
       <a-entity id="particles" particle-system="preset: snow"></a-entity>
-    
+
 
         <a-camera>
           <a-cursor></a-cursor>
