@@ -61,4 +61,6 @@ function startConverting() {
 
 document.getElementById('barista').addEventListener('click', () => {
     startConverting();
+    document.getElementById('barista').setAttribute('material', 'color:green')
+    document.getElementById('initiate-convo-text').setAttribute('value', 'SPEAK')
 })
