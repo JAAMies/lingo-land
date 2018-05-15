@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "barista-bot-5425c",
+  "private_key_id": "4bab6ebe4a92f42e3fb139d2fab5630e7ccd2f6b",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDJ/FKh37k5D1Zj\nruRmLtNesdoEvK44AG3WpBBmWWWiSvl8xoR/DDrWBI7CZ3waYfZ3zc+7tuRv1oN2\nvuzA6sMqKJXobuvjb2BC1CU6KFd2TDHy1+O9+ERkpOuh/RLnQ5ecErVCKi4ObsSr\nykIXEMiS1GuXZ5benM1rHWbtlx9epa3YBCF+DvjSg7/aJlcjhfbY6PxPDwPaxwcy\nsGW6KWN2J+gyRSMWFRup1P0Ks6oxedplDQCsGfpH0nsrD/T/hlX77OxYqe3z7VN3\nyBEUBsZrd858g0WJgjj+nKdNCEkng2p/knH0kh6ZAaPLxNI0EGrAtQ3eyy/cgZSD\nv6evDbn1AgMBAAECggEADsMmxOxFgiKZVUVvLaVcJG504+YTCPEbFgC9WXBM3yIs\nqXkW2PRAs+tMWxqrdYArE9F9I8KNCpF6ipS6AqrbIxB+ov4XC8h+7WjKOb3AurAn\nRxDj9Q/ulmPT/EMIp9IHBCH9O73lH3/qrDA8SVRG3IMIRAi5puvTOvIWAjpf0WUY\nL5H5mQDUI6OPS9bQVZ9wQI17hJP6CsB+z8wotOLIvZPGVXAz5O2rtArNSJdVjHI9\nFEhcljjH+vr3QKLbRkmDdrP65n5Z/CSXoEcutRE/X13etdDFdqBiIghPJBkxxeOz\nansiwHCF3TQ8OUGrPW4xH5vGFwL62TLTcod/2mGetwKBgQD0DJYBYRLgizvGWZfv\n0CaklzZz1qkv2h7eGrYcuai6IWTt08Rvw5t9DkQKH/VYp9Ehu17lu6/8Efqu58a9\nuAOKWeKXDMVFNs7/PeusginrrLrvfS3N9KTQMlzrHfoC112hW0lLg9L//CRqwB+D\nX/AA5rFYoaqYfsVFArops2O5nwKBgQDT4G0TAtXkCUN9EzwBqjMQu01tIREAh3S5\nRtoTEm80U4OD1w7wh32V25hKDvAxyM8BaUxJh/f/oWgwaEPijMxA0hwQIQ9mUqPS\n9q4QfCp0AX0K+57MdcauQ9j71/Si16UWg4HDqs0yB0ehPW2SgSL+bQQJLdsOT5Ac\ng8treqeL6wKBgQDU+jraf0XDEZ8brUpr7UIb9x59HwNNEFRJzhPJo7h8nvH+nwVZ\n5+HE0/NKxrMNKH7YqjTZ1d5x45raksic/n6QeXrGCU4K5hblJruKM5mz42zL3Xlg\nuDQwwRLX2LQ7UImUbB7duPAll3yMcJfPxaSklK6GQ6emJ1Ousv+VrsjDzwKBgQDP\nvDs1aJJOAsco2rL67uUigoJnfQQugKDxB4bJLEncBAXuPe1n53A6fhPSiNL3/Or5\nd0RU0/tTp+1/iLsGZQXeiCL7rW5r5Jq7PSFtCFCXbN4s5ofL763dLqiQRCyXfNdg\nO4//SHfnlTul25STEAo/aqOKXGtqnJevXYkU2C1uAQKBgCL5AZwTtSBryaU8wgBw\nt2ZD/kHVQWtRvJlOiFIpHBSbl69MQ+0WLJr9VBtdIR2nuo7DKw31f/FORXEDKX9R\nq9QFvWJKO9IlyeVSBUlxk0UKNm80/4CZ1nQrdM7ciJjnmwtn5Z+4xerkXWTlkNuz\nuu2IsKKAZZ1hVa4FdZIipy/m\n-----END PRIVATE KEY-----\n",
+  "client_email": "dialogflow-cipbgm@barista-bot-5425c.iam.gserviceaccount.com",
+  "client_id": "115906983199591262591",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/dialogflow-cipbgm%40barista-bot-5425c.iam.gserviceaccount.com"
+}

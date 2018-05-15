@@ -13,10 +13,65 @@
     <script src="https://unpkg.com/aframe-particle-system-component@1.0.5/dist/aframe-particle-system-component.min.js"></script>
 
 
-    <script src="/js/spawn-in-circle.component.js"></script>
+    <!-- <script src="/js/spawn-in-circle.component.js"></script> -->
 
     <!-- conversation prompt generator with click handler -->
     <script src="/js/conversationPrompts.js" defer></script>
+    <script>
+      // Define custom schema for syncing avatar color, set by random-color
+      var avatarSchema = {
+        template: '#avatar-template',
+        components: [
+          'position',
+          'rotation',
+          {
+            selector: '.head',
+            component: 'material'
+          }
+        ]
+      };
+      NAF.schemas.add(avatarSchema);
+    </script>
+
+    <script>
+      function onConnected(){
+      }
+
+      AFRAME.registerComponent('foo',{
+        init:function(){
+        let playerEl = document.createElement('a-entity');
+        playerEl.setAttribute('id','player');
+        playerEl.setAttribute('networked','template','#avatar-template');
+        playerEl.setAttribute('networked','showLocalTemplate','false');
+        playerEl.setAttribute('camera','');
+        playerEl.setAttribute('cursor','');
+        playerEl.setAttribute('wasd-controls','');
+        playerEl.setAttribute('look-controls','');
+        setTimeout(function(){
+        let scene = document.querySelector('a-scene');
+        console.log(NAF.entities.entities);
+        console.log(Object.keys(NAF.entities.entities));
+        let playerNumber = Object.keys(NAF.entities.entities).length;
+        console.log(playerNumber);
+
+        //let player = document.querySelector('#player');
+
+        if(playerNumber==0){
+          playerEl.setAttribute('position','-1 1.6 -1');
+          playerEl.setAttribute('rotation','0 -90 0');
+        }else if(playerNumber==1){
+          playerEl.setAttribute('position','1 1.6 -1');
+          playerEl.setAttribute('rotation','0 90 0');
+        }else{
+          playerEl.setAttribute('position','3 1.6 -1');
+          playerEl.setAttribute('rotation','0 0 0');
+        }
+        scene.appendChild(playerEl);
+      },3000);
+
+        }
+      })
+    </script>
 
   </head>
 
@@ -27,7 +82,8 @@
       adapter: easyrtc;
       audio: true;
       debug: true;
-    ">
+      onConnect: onConnected;
+    " foo>
 
       <a-assets>
 
@@ -37,7 +93,7 @@
         <!-- Templates -->
 
         <!-- Avatar -->
-        <template id="avatar-template">
+        <template id="avatar-template" type="text/html">
           <a-entity class="avatar" networked-audio-source>
             <a-sphere class="head"
               color="#5985ff"
@@ -91,14 +147,12 @@
 
       <a-entity id="player"
         networked="template:#avatar-template;attachTemplateToLocal:false;"
-        camera spawn-in-circle="radius:2;"
-        position="0 1.3 0"
+
         wasd-controls look-controls>
         <a-sphere class="head"
           visible="false"
           random-color
         ></a-sphere>
-        <!-- <a-camera><a-cursor></a-cursor></a-camera> -->
       </a-entity>
 
       <a-entity position="0 0 0"
@@ -115,7 +169,7 @@
 
 
 
-    <script>
+    <!-- <script>
       // On mobile remove elements that are resource heavy
       var isMobile = AFRAME.utils.device.isMobile();
       if (isMobile) {
@@ -135,6 +189,6 @@
           }
         ]
       });
-    </script>
+    </script> -->
   </body>
 </html>
