@@ -1,0 +1,12 @@
+{
+ "type": "service_account",
+ "project_id": "stanger-in-cafe",
+ "private_key_id": "5f37be01e38994c8896198b5d65d598b56106615",
+ "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCrV0hm9nNN1oxQ\nOmamnbzakXGfHvgcvMD8AuFUkvxd4xfBpnd5RirbMe5nNz/kfRpzXdrmmK+2Wv8v\nv6dEeHwqT0hor571/gq955Mn85bAsUlOJBtMg+MOk/+1tNfipK2xbfw/0fF09sgw\nA7K4813/63vw3Xyytbf8QHNwEI6WkaGryombhAvvSPpC9qH9uJko1GXLHq2YX9h5\nNVh+Bfc36vkeDdyEuyxJ+8N0NpwGSxv0FQF+x/TO7dLVozmnWgHH3awYQorxLvJ6\nuSwx9xkg7o9L3OhO2mKWtSnsa0Wh1xNvK3nxJswVa6pbfiPAcGvB2NZXNGGsrogn\nqmAAgB1tAgMBAAECggEAA+Bj6jZxueVcg9UqbOMdOnm3byDxfp7zo9AB3pq7vHkO\nmMpGIjeI8TAiQ3IPz0DYWBtbwENcmFzbMK6en3E1Z/Smv/2XNFwUzKKgZPNBKido\nr+yntHW4baRCEQ+gIcfViTHiluQOWTXbJiDzSnVxH0Dp6zNrppRvbvTbV8H8I+Jq\noRsBvwFlX2FsWMZoPVisROaNa/eyofxcS+Rn9kv/D/FCCz84wxrQmLpxZnLI++RB\nUKrCNf0WLZlOJr+m2XDSJ1tIanL22wBOFUrHqNGH74yY9vnmdE29qFL0oXjb0/gy\niubzSVFzhlQ+AjgoqaqselKsXyRzUyS9Khk2Yi2eaQKBgQDY/3fGqgzAQ9uLFc6r\nzqDu7+xDu0rEUUSWXsmgklBQdiIasKN4qdheHAA5RqSHF+EwTn0kc1jSboT9qDrV\npKzCxUe09ghe6D+K2PqCOwoR1VzEU6cuhInfAenBfAjPH1wlNCntv8CftYNxSWCM\nRdQHor5Aijctw7xQrEcwpabA9QKBgQDKIwqTSgMUHT2SBJUIObnD700qTXGno2Pl\nY3X5JfGWBTF0jDApWxwtbtmMWtweOVi/w3MF9rUou5KdUKmt7srW9N7zQIxjYDnu\nzTvNTFALNYz0yCZJDm9s6NBAAfmylEJMcC8jbt2L2JaLFlEP+iSLqM+e2oeh34aO\n3z6sEmC/mQKBgQCoKABHgUt0SqF8/J81YGAyCNaL/j2IOHnwFPAmcHuwfnsbN7rW\nLLgw5X3+5JFm5shoyMoNTx2LpH2Gm7FMEdqW7I4O24HNGijzjgVCmkHJZBAJS9II\nKEk2+aKNf3LMHr8nTW8YgDnjCaQcTAJ3cT1H1YOdO/5aho4N7hMUzamVaQKBgEcx\nNEZP6OmqqsbEymCNRDoYDEt73y21xDdEYoaPsJiv140+2q+WIUR3KDPgxGn4tKNF\niTtueruP5MF3aWuTEOnIcMWn1Eoj2AOdURSrbf2krLKB08ojRWdMUBxbFcCpqvgV\nAuUt5OWeMNdn0sEXzstJd2ZxfResDE5BnmcoSd7xAoGAFcH3MWL23vGJOcOHXVpe\n906Ih/V1OGIdDfzl3G1BeLCs41IsBXyr1gkcGze8uV0x0No1PTA2uXjCFOU5taJO\nY6EEmNcwKc54nkJ9vuKlK2IFyE77jAj6DALJPOgW5iVMvekOhCgdYgP6WtgqXL8J\ntnmdGV4mR8pqFP3GclPDpqU=\n-----END PRIVATE KEY-----\n",
+ "client_email": "dialogflow-xnlbre@stanger-in-cafe.iam.gserviceaccount.com",
+ "client_id": "100322848814038565993",
+ "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+ "token_uri": "https://accounts.google.com/o/oauth2/token",
+ "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+ "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/dialogflow-xnlbre%40stanger-in-cafe.iam.gserviceaccount.com"
+}
