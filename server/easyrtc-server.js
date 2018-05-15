@@ -16,6 +16,7 @@ var app = express();
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
+app.use('/stanger', require('./agentStanger'))
 app.use('/barista', require('./agent'))
 app.use(serveStatic('server/static', { 'index': ['index.html'] }));
 // Start Express http server
