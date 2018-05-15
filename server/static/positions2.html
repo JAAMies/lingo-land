@@ -10,10 +10,6 @@
     <script src="https://unpkg.com/networked-aframe@^0.5.0/dist/networked-aframe.min.js"></script>
 
     <script src="https://unpkg.com/aframe-randomizer-components@^3.0.1/dist/aframe-randomizer-components.min.js"></script>
-    <script src="/js/spawn-in-circle.component.js"></script>
-
-
-
 
     <!-- conversation prompt generator with click handler -->
     <script src="/js/conversationPrompts.js" defer></script>
@@ -59,16 +55,12 @@
             if(playerNumber==0){
               playerEl.setAttribute('position','-1 1.6 -1');
               playerEl.setAttribute('rotation','0 -135 0');
-              // cameraPlayer.setAttribute('position','-1 1.6 -1');
-              // cameraPlayer.setAttribute('rotation','0 -90 0');
             }else if(playerNumber==1){
               playerEl.setAttribute('position','1 1.6 -1');
               playerEl.setAttribute('rotation','0 135 0');
-              // cameraPlayer.setAttribute('position','1 1.6 -1');
-              // cameraPlayer.setAttribute('rotation','0 90 0');
             }else{
               playerEl.setAttribute('position','3 1.6 -1');
-              playerEl.setAttribute('rotation','0 0 0');
+              playerEl.setAttribute('rotation','0 180 0');
             }
             var cursorEntity = document.createElement('a-entity');
             cursorEntity.setAttribute('cursor', 'fuse:true');
@@ -100,15 +92,6 @@
       <a-assets>
 
         <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
-
-        <!-- ARMCHAIRS -->
-        <!-- <a-asset-item id="armchair-obj" src="./assets/lingo-assets/armchairs/arm-chair.obj"></a-asset-item> -->
-        <!-- <a-asset-item id="armchair-mtl" src="./assets/lingo-assets/armchairs/arm-chair.mtl"></a-asset-item> -->
-
-        <a-asset-item id="chair-obj" src="./assets/chair/chair.obj"></a-asset-item>
-        <a-asset-item id="chair-mtl" src="./assets/chair/chair.mtl"></a-asset-item>
-
-        <!-- Templates -->
 
         <!-- Avatar -->
         <script id="avatar-template" type="text/html">
@@ -146,24 +129,8 @@
             </a-entity>
           </a-entity>
         </script>
-        <!-- /Templates -->
 
       </a-assets>
-
-      <!-- ARMCHAIRS - not rendering -->
-      <a-entity id="chair"
-        obj-model="obj: #chair-obj; mtl: #chair-mtl"
-        position="-1 0 -1"
-        rotation="0 90 0"
-        scale="10 10 10"
-      ></a-entity>
-      <a-entity id="chair2"
-        obj-model="obj: #chair-obj; mtl: #chair-mtl"
-        position="1 0 -1"
-        rotation="0 -90 0"
-        scale="1 1 1"
-      ></a-entity>
-
 
       <!-- PROMPT-->
       <a-entity
@@ -194,7 +161,7 @@
         ></a-text>
       </a-entity>
 
-    <a-entity environment="preset: forest; dressingAmount: 500"></a-entity>
+      <a-entity environment="preset: forest; dressingAmount: 500"></a-entity>
 
     </a-scene>
 
