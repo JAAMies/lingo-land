@@ -1,7 +1,8 @@
 //var r = document.getElementById('result');
 
 async function speak(text, vox) {
-    if (vox )
+    // if (vox ) 
+    console.log('see here ------>', vox)
     var msg = new SpeechSynthesisUtterance();
     msg.lang = 'es-ES'
     console.log(msg)
