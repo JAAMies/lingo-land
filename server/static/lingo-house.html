@@ -66,6 +66,8 @@
           position="5 0 0" rotation="0 -90 0" 
           wasd-controls look-controls>
           <a-cursor id='cursor'></a-cursor> 
+          <a-text id="speech-recognition" color="white" visible='false' scale='0.3 0.3 0.3'
+            position="-0.2 -0.1 -1" value="try it yourself!" rotation="0 0 0" ></a-text>
       </a-entity>
 
       <!-- BUILDINGS -->
@@ -77,8 +79,9 @@
       <!-- transparent boxes -->
       <a-box class="boxes" id="books" color="#50A534" position="32.5 3 -0.5" rotation="0 0 0" depth="0.3" opacity="0"
         scale="2 2 2" object="los libros"></a-box>
-      <a-text class="texts" id="loslibros" value="los libros" visible="false" color="#FFF"
-        position="32.5 3 -1" scale="1.5 1.5 1.5" rotation="180 0 180"></a-text>
+          <a-text class="texts" id="loslibros" value="los libros" visible="false" color="#FFF"
+            position="32.5 3 -1" scale="1.5 1.5 1.5" rotation="180 0 180"></a-text>
+
 
       <a-box class="boxes" id="tv" color="#50A534" position="30 2.5 -4.5" rotation="0 90 0" depth="0.3" height="0.5" width="0.6"
         scale="2 2 2" opacity="0" object="la tele"></a-box>
@@ -250,7 +253,7 @@
     </a-entity>
 
 
-        <a-text id="speech-recognition" color="white" position="0 2 -3" rotation="0 0 0" value="practice speaking!"></a-text>
+        <a-text id="speech-recognition" color="white" position="0 2 -3" rotation="0 0 0" value="guess the word"></a-text>
 
 
 
