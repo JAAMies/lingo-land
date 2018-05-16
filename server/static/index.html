@@ -3,8 +3,9 @@
 
 <head>
     <meta charset="utf-8">
-    <title>360&deg; Image Gallery</title>
-    <meta name="description" content="360&deg; Image Gallery - A-Frame">
+    <link rel="icon" href="./assets/vr-icon.png">
+    <title>Ling 🌎 Land</title>
+    <meta name="description" content="LingoLand">
     <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
     <script src="https://npmcdn.com/aframe-animation-component@3.0.1"></script>
     <script src="https://npmcdn.com/aframe-event-set-component@3.0.1"></script>
@@ -20,9 +21,9 @@
             <a-asset-item id="earth-mtl" src="./assets/dimensionalEarth/earth.mtl"></a-asset-item>
 
             <img id="city" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/city.jpg">
-            <img id="cafe-thumb" crossorigin="anonymous" src="./lingo-cafe.jpg">
-            <img id="house-thumb" crossorigin="anonymous" src="./lingo-house.jpg">
-            <img id="chat-thumb" crossorigin="anonymous" src="./SIT-N-CHAT.jpg">
+            <img id="cafe-thumb" crossorigin="anonymous" src="./assets/lingo-cafe.jpg">
+            <img id="house-thumb" crossorigin="anonymous" src="./assets/lingo-house.jpg">
+            <img id="chat-thumb" crossorigin="anonymous" src="./assets/lingo-chat.jpg">
             <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
             <!-- Image link template to be reused. -->
             <script id="link" type="text/html">
@@ -35,7 +36,7 @@
         <a-entity id="links" layout="type: line; margin: 3" position="-3 -3 -3.5" rotation='0 0 0'>
             <a-entity id="lingo-house" template="src: #link" data-src="#house" data-thumb="#house-thumb"></a-entity>
             <a-entity id="lingo-cafe" template="src: #link" data-src="#cafe" data-thumb="#cafe-thumb"></a-entity>
-            <a-entity id="positions2" template="src: #link" data-src="#chat" data-thumb="#chat-thumb"></a-entity>
+            <a-entity id="lingo-chat" template="src: #link" data-src="#chat" data-thumb="#chat-thumb"></a-entity>
         </a-entity>
 
 
@@ -44,6 +45,7 @@
         position="-6 1 -5"
         scale="11 11 11"
         color="#F3F2F0"
+        opacity='0.9'
         font="exo2bold"
         ></a-text>
  
@@ -67,6 +69,7 @@
         scale="11 11 11"
         color="#F3F2F0"
         font="exo2bold"
+        opacity='0.9'
       ></a-text>
 
         <script>
@@ -80,9 +83,9 @@
             document.location.pathname = "/lingo-cafe.html"
         });
 
-        var link3 = document.querySelector('#positions2');
+        var link3 = document.querySelector('#lingo-chat');
         link3.addEventListener('click', (e) => {
-            document.location.pathname = "/positions2.html"
+            document.location.pathname = "/lingo-chat.html"
         });
         </script>
 
