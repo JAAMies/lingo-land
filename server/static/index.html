@@ -1,68 +1,117 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>Lingoland VR</title>
-    <meta name="description" content="Collection of examples for networked-aframe"></meta>
-    <script src='./js/agent.js'></script>
-    <style>
-      html {
-        background: #33425B;
-        color: #FAFAFA;
-        font-family: monospace;
-        font-size: 20px;
-        padding: 10px 20px;
-      }
-      h1 {
-        font-weight: 300;
-      }
-      a {
-        color: #FAFAFA;
-        /*display: block;*/
-        padding: 15px 0;
-      }
-      body > div {
-        margin: 20px 0;
-      }
-    </style>
-  </head>
-  <body>
 
-      <!-- <iframe
-      width="350"
-      height="430"
-      src="https://console.dialogflow.com/api-client/demo/embedded/6976b25d-dd92-4969-8d3d-39bb993bf552">
-  </iframe> -->
-    <h1>Lingoland VR</h1>
-    <div>
-        <a href="basic.html">BASIC</a><br/>
-        <span style="color:red">Test your staff here</span>
-      </div>
-    <div>
-        <a href="reposition.html">REPOSITION</a><br/>
-        <span style="color:red">Move by using circles on the floor</span>
-      </div>
-      <br>    <br>
-    <div>
-      <a href="lingo-house.html">LINGO HOUSE</a><br/>
-      <span style="color:greenyellow">Enjoy hospitality and practice daily conversations as a guest in the house of Smith family.</span>
-    </div>
-    <div>
-      <a href="lingo-cafe.html">LINGO CAFE</a> <br/>
-      <span style="color:greenyellow">Engage in social situaltions , practice small talk and find new friends in the corner coffeeshop.</span>
-    </div>
-    <div>
-      <a href="#">LINGO CITY</a><br/>
-      <span style="color:greenyellow">Walk around the city and ask locals about landmarks, directions and even more.</span>
-    </div>
-    <br>
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" href="./assets/vr-icon.png">
+    <title>Ling 🌎 Land</title>
+    <meta name="description" content="LingoLand">
+    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+    <script src="https://npmcdn.com/aframe-animation-component@3.0.1"></script>
+    <script src="https://npmcdn.com/aframe-event-set-component@3.0.1"></script>
+    <script src="https://npmcdn.com/aframe-layout-component@3.0.1"></script>
+    <script src="https://npmcdn.com/aframe-template-component@3.1.1"></script>
+    <script src="components/set-image.js"></script>
+</head>
+
+<body>
+    <a-scene>
+        <a-assets>
+            <a-asset-item id="earth-obj" src="./assets/dimensionalEarth/earth.obj"></a-asset-item>
+            <a-asset-item id="earth-mtl" src="./assets/dimensionalEarth/earth.mtl"></a-asset-item>
+
+            <img id="city" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/city.jpg">
+            <img id="cafe-thumb" crossorigin="anonymous" src="./assets/lingo-cafe.jpg">
+            <img id="house-thumb" crossorigin="anonymous" src="./assets/lingo-house.jpg">
+            <img id="chat-thumb" crossorigin="anonymous" src="./assets/lingo-chat.jpg">
+            <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
+            <!-- Image link template to be reused. -->
+            <script id="link" type="text/html">
+                <a-entity class="link" geometry="primitive: plane; height: 2; width: 2" material="shader: flat; src: ${thumb}" event-set__1="_event: mousedown; scale: 1 1 1" event-set__2="_event: mouseup; scale: 1.2 1.2 1" event-set__3="_event: mouseenter; scale: 1.2 1.2 1" event-set__4="_event: mouseleave; scale: 1 1 1" set-image="on: click; target: #image-360; src: ${src}" sound="on: click; src: #click-sound"></a-entity>
+            </script>
+        </a-assets>
+        <!-- 360-degree image. -->
+        <a-sky id="image-360" radius="10" src="#city"></a-sky>
+        <!-- Image links. -->
+        <a-entity id="links" layout="type: line; margin: 3" position="-3 -3 -3.5" rotation='0 0 0'>
+            <a-entity id="lingo-house" template="src: #link" data-src="#house" data-thumb="#house-thumb"></a-entity>
+            <a-entity id="lingo-cafe" template="src: #link" data-src="#cafe" data-thumb="#cafe-thumb"></a-entity>
+            <a-entity id="lingo-chat" template="src: #link" data-src="#chat" data-thumb="#chat-thumb"></a-entity>
+        </a-entity>
 
 
-    <!-- GitHub Corner. -->
-    <a href="https://github.com/haydenjameslee/networked-aframe" class="github-corner">
-      <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;">
-        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
-      </svg>
-    </a>
-    <style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}
-    </style>
-  </body>
+        <a-text
+        value="Ling"
+        position="-6 1 -5"
+        scale="11 11 11"
+        color="#F3F2F0"
+        opacity='0.9'
+        font="exo2bold"
+        ></a-text>
+ 
+        <a-entity id="earth"
+        obj-model="obj: #earth-obj; mtl: #earth-mtl"
+        position="0 -0.5 -5"
+        scale=".0027 .0027 .0027"
+        >
+        <a-animation
+          attribute="rotation"
+          dur="6000"
+          to="0 -360 0"
+          repeat="indefinite"
+          easing="linear"
+        ></a-animation>
+        </a-entity>
+ 
+      <a-text
+        value="Land"
+        position="1.2 1 -5"
+        scale="11 11 11"
+        color="#F3F2F0"
+        font="exo2bold"
+        opacity='0.9'
+      ></a-text>
+
+        <script>
+        var link = document.querySelector('#lingo-house');
+        link.addEventListener('click', (e) => {
+            document.location.pathname = "/lingo-house.html"
+        });
+
+        var link2 = document.querySelector('#lingo-cafe');
+        link2.addEventListener('click', (e) => {
+            document.location.pathname = "/lingo-cafe.html"
+        });
+
+        var link3 = document.querySelector('#lingo-chat');
+        link3.addEventListener('click', (e) => {
+            document.location.pathname = "/lingo-chat.html"
+        });
+        </script>
+
+        <!-- Camera + cursor. -->
+        <a-entity camera look-controls wasd-controls position='0 -1.5 1.75'>
+            <a-cursor id="cursor" animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150" animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500" event-set__1="_event: mouseenter; color: springgreen" event-set__2="_event: mouseleave; color: black" fuse="true" raycaster="objects: .link"></a-cursor>
+        </a-entity>
+    </a-scene>
+</body>
+
 </html>
+
+   <!-- <meta charset="utf-8">
+   <title>Logo</title>
+   <meta name="description" content="Logo">
+
+   <script src="https://aframe.io/releases/0.6.0/aframe.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
+   <script src="easyrtc/easyrtc.js"></script>
+   <script src="https://unpkg.com/networked-aframe@^0.5.0/dist/networked-aframe.min.js"></script>
+
+   <script src="https://unpkg.com/aframe-randomizer-components@^3.0.1/dist/aframe-randomizer-components.min.js"></script>
+   <script src="https://unpkg.com/aframe-particle-system-component@1.0.5/dist/aframe-particle-system-component.min.js"></script> -->
+
+
+
+
+
+
