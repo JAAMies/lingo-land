@@ -1,18 +1,22 @@
+var currentBot;
 async function speak(text, vox) {
   var msg = new SpeechSynthesisUtterance();
   msg.lang = 'es-ES'
   console.log(msg)
   msg.text = text;
-  speechSynthesis.getVoices();
-  if (speechSynthesis.onvoiceschanged !== undefined) {
-    speechSynthesis.onvoiceschanged = () => {
-      msg.voice = speechSynthesis.getVoices().find((voice) => voice.name === vox);
-      window.speechSynthesis.speak(msg);
-    }
-  }
+  var voices = speechSynthesis.getVoices();
+  msg.voice = voices.find(voice => voice.name === vox);
+  // if (speechSynthesis.onvoiceschanged !== undefined) {
+  //   speechSynthesis.onvoiceschanged = () => {
+  //     msg.voice = speechSynthesis.getVoices().find((voice) => voice.name === vox);
+  window.speechSynthesis.speak(msg);
+  //   }
+  // }
 }
 
+
 function startConverting(bot) {
+  console.log('our bot ---> ', bot)
   console.log('start converting ----------> ')
   if (!('webkitSpeechRecognition' in window)) return
 
@@ -40,7 +44,7 @@ function startConverting(bot) {
     })
 
     console.log('body:', body)
-    var vox = bot === 'barista' ? 'Jorge' : 'Paulina';
+    var vox = bot === 'barista' ? 'Paulina' : 'Paulina'//'Paulina';
     fetch(`/${bot}/${sessionId}`, {
       method: 'PUT',
       body,
@@ -64,8 +68,10 @@ function startConverting(bot) {
 
 document.getElementById('barista').addEventListener('click', () => {
   startConverting('barista');
+  document.getElementById('barista').setAttribute('material', 'color: green')
 })
 
 document.getElementById('stanger').addEventListener('click', () => {
   startConverting('stanger');
+  document.getElementById('stanger').setAttribute('material', 'color: green')
 })
