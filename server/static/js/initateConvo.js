@@ -1,15 +1,14 @@
+//var r = document.getElementById('result');
+
 async function speak(text, vox) {
-  var msg = new SpeechSynthesisUtterance();
+  if (vox)
+    var msg = new SpeechSynthesisUtterance();
   msg.lang = 'es-ES'
   console.log(msg)
   msg.text = text;
-  speechSynthesis.getVoices();
-  if (speechSynthesis.onvoiceschanged !== undefined) {
-    speechSynthesis.onvoiceschanged = () => {
-      msg.voice = speechSynthesis.getVoices().find((voice) => voice.name === vox);
-      window.speechSynthesis.speak(msg);
-    }
-  }
+  msg.voice = await speechSynthesis.getVoices().find((voice) => voice.name === vox);
+  console.log("msg.voice", msg.voice)
+  window.speechSynthesis.speak(msg);
 }
 
 function startConverting(bot) {
@@ -61,11 +60,12 @@ function startConverting(bot) {
 
   return speechRecognizer;
 }
-
 document.getElementById('barista').addEventListener('click', () => {
   startConverting('barista');
+  document.getElementById('barista').setAttribute('material', 'color: green')
 })
 
 document.getElementById('stanger').addEventListener('click', () => {
   startConverting('stanger');
+  document.getElementById('stanger').setAttribute('material', 'color: green')
 })
