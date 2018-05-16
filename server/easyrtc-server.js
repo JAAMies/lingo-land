@@ -18,10 +18,9 @@ app.use(bodyParser.urlencoded({
   extended: true
 }))
 
+app.use('/stanger', require('./agentStanger'))
 app.use('/barista', require('./agent'))
-app.use(serveStatic('server/static', {
-  'index': ['index.html']
-}));
+app.use(serveStatic('server/static', { 'index': ['index.html'] }));
 // Start Express http server
 var webServer = http.createServer(app);
 
@@ -31,14 +30,14 @@ var socketServer = socketIo.listen(webServer, {
 });
 
 var myIceServers = [{
-    "url": "stun:stun.l.google.com:19302"
-  }, {
-    "url": "stun:stun1.l.google.com:19302"
-  }, {
-    "url": "stun:stun2.l.google.com:19302"
-  }, {
-    "url": "stun:stun3.l.google.com:19302"
-  }
+  "url": "stun:stun.l.google.com:19302"
+}, {
+  "url": "stun:stun1.l.google.com:19302"
+}, {
+  "url": "stun:stun2.l.google.com:19302"
+}, {
+  "url": "stun:stun3.l.google.com:19302"
+}
   // {
   //   "url":"turn:[ADDRESS]:[PORT]",
   //   "username":"[USERNAME]",
@@ -55,8 +54,8 @@ easyrtc.setOption("logLevel", "debug");
 easyrtc.setOption("demosEnable", false);
 
 // Overriding the default easyrtcAuth listener, only so we can directly access its callback
-easyrtc.events.on("easyrtcAuth", function(socket, easyrtcid, msg, socketCallback, callback) {
-  easyrtc.events.defaultListeners.easyrtcAuth(socket, easyrtcid, msg, socketCallback, function(err, connectionObj) {
+easyrtc.events.on("easyrtcAuth", function (socket, easyrtcid, msg, socketCallback, callback) {
+  easyrtc.events.defaultListeners.easyrtcAuth(socket, easyrtcid, msg, socketCallback, function (err, connectionObj) {
     if (err || !msg.msgData || !msg.msgData.credential || !connectionObj) {
       callback(err, connectionObj);
       return;
@@ -73,16 +72,16 @@ easyrtc.events.on("easyrtcAuth", function(socket, easyrtcid, msg, socketCallback
 });
 
 // To test, lets print the credential to the console for every room join!
-easyrtc.events.on("roomJoin", function(connectionObj, roomName, roomParameter, callback) {
+easyrtc.events.on("roomJoin", function (connectionObj, roomName, roomParameter, callback) {
   console.log("[" + connectionObj.getEasyrtcid() + "] Credential retrieved!", connectionObj.getFieldValueSync("credential"));
   easyrtc.events.defaultListeners.roomJoin(connectionObj, roomName, roomParameter, callback);
 });
 
 // Start EasyRTC server
-var rtc = easyrtc.listen(app, socketServer, null, function(err, rtcRef) {
+var rtc = easyrtc.listen(app, socketServer, null, function (err, rtcRef) {
   console.log("Initiated");
 
-  rtcRef.events.on("roomCreate", function(appObj, creatorConnectionObj, roomName, roomOptions, callback) {
+  rtcRef.events.on("roomCreate", function (appObj, creatorConnectionObj, roomName, roomOptions, callback) {
     console.log("roomCreate fired! Trying to create: " + roomName);
 
     appObj.events.defaultListeners.roomCreate(appObj, creatorConnectionObj, roomName, roomOptions, callback);
@@ -90,6 +89,6 @@ var rtc = easyrtc.listen(app, socketServer, null, function(err, rtcRef) {
 });
 
 //listen on port
-webServer.listen(port, function() {
+webServer.listen(port, function () {
   console.log('listening on http://localhost:' + port);
 });
