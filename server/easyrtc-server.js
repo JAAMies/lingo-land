@@ -13,13 +13,15 @@ var port = process.env.PORT || 8080;
 
 // Setup and configure Express http server. Expect a subfolder called "static" to be the web root.
 var app = express();
-app.use(bodyParser.json())
+
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true
-}))
+}));
 
-app.use('/stanger', require('./agentStanger'))
-app.use('/barista', require('./agent'))
+app.use('/stanger', require('./agentStanger'));
+app.use('/barista', require('./agent'));
+
 app.use(serveStatic('server/static', { 'index': ['index.html'] }));
 // Start Express http server
 var webServer = http.createServer(app);
@@ -29,15 +31,11 @@ var socketServer = socketIo.listen(webServer, {
   "log level": 1
 });
 
-var myIceServers = [{
-  "url": "stun:stun.l.google.com:19302"
-}, {
-  "url": "stun:stun1.l.google.com:19302"
-}, {
-  "url": "stun:stun2.l.google.com:19302"
-}, {
-  "url": "stun:stun3.l.google.com:19302"
-}
+var myIceServers = [
+  { "url": "stun:stun.l.google.com:19302" },
+  { "url": "stun:stun1.l.google.com:19302" },
+  { "url": "stun:stun2.l.google.com:19302" },
+  { "url": "stun:stun3.l.google.com:19302" }
   // {
   //   "url":"turn:[ADDRESS]:[PORT]",
   //   "username":"[USERNAME]",

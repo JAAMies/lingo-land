@@ -2,14 +2,15 @@
 var vocabWords = new Set([
   "los libros",
   "la tele",
-  "la casa",
-  "la puerta",
+  // "la casa",
+  // "la puerta",
   "la cama",
   "el armario",
   "la ventana",
   "la mesa",
   "las cortinas",
   "el ordenador",
+  "el refrigerador",
   "el sofa",
   "la mesa de comedor",
   "el reloj",
@@ -26,7 +27,7 @@ function startConverting() {
     speechRecognizer.interimResults = true;
     speechRecognizer.lang = "es-ES";
 
-    speechRecognizer.onresult = function(event) {
+    speechRecognizer.onresult = function (event) {
       var transcript = "";
       for (let i = event.resultIndex; i < event.results.length; i++) {
         if (event.results[i].isFinal) {
@@ -37,7 +38,7 @@ function startConverting() {
             r.setAttribute("color", "cyan");
             r.setAttribute("value", transcript);
           } else {
-            r.setAttribute("color", "white");
+            r.setAttribute("color", "red");
             r.setAttribute("value", transcript);
           }
         }
