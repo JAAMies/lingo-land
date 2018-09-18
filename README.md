@@ -3,9 +3,10 @@
 ## TRY it at the web
 
 🌍  http://lingo-land.herokuapp.com/
+_Please note the application is currently under reconstruction for performance optimization._
 
 ## OR  Download and play
-_This application is currently under reconstruction for performance optimization, but you are welcomed to download our open-source materials and play around. Please note you can't access the AI agents for security reasons_ 
+_You are welcomed to download our open-source materials and play around._
 
 - `git clone` 
 - `npm install` 
