@@ -64,7 +64,7 @@ Our application is designed to help us learn in a new immersive way. We created 
 
 `These fabulous authors of the app are open to new opportunities. Please drop us a line and say hello :]` 
 
-![the team](https://s3.amazonaws.com/lingo-land-alisa/readme-pics/Snip20180917_175.png) 
+![the team](https://s3.amazonaws.com/lingo-land-alisa/readme-pics/Snip20180917_175_1_2.png) 
 
 
 
