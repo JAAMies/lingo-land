@@ -1,6 +1,10 @@
 # Learn language and meet friends @ Lingo Land
 
-## TRY it at the web
+## Check out the video demo here: 
+
+🌍  https://www.youtube.com/watch?v=sh46D-C3LU4
+
+## TRY it on the web
 
 🌍  http://lingo-land.herokuapp.com/
 
@@ -16,7 +20,7 @@ _You are welcomed to download our open-source materials and play around._
 
 ## OR Read in details  ⤵ 
 
-LingoLand is a web based Virtual Reality app that provides a single and multi-user immersive learning experience. Built with A-Frame and Three.js, LingoLand features real time audio communication to interact with other users, speech recognition to interact with bots, and speech synthesis to interact with objects. To ensure a customized user experience the team used Dialogflow, an Artificial Intelligence API, to train bots to engage in various scenarios and simulate natural language conversations. Come try LingoLand and see for yourself!
+Have you ever wanted to learn a foreign language but struggled to simuate an immersive environment? LingoLand is a web based Virtual Reality app that provides a single and multi-user immersive learning experience. Built with A-Frame and Three.js, LingoLand features real time audio communication to interact with other users, speech recognition to interact with bots, and speech synthesis to interact with objects. To ensure a customized user experience, our team used Dialogflow, an Artificial Intelligence API, to train bots to engage in various scenarios and simulate natural language conversations. Come try LingoLand and see for yourself!
 
 
 
@@ -26,8 +30,8 @@ LingoLand is a web based Virtual Reality app that provides a single and multi-us
 ####
 ####
 ####
-### 🏠 Learn new vocabulary and receive a color-coded feedback 
-Lingo Land uses Virtual Reality to create an immersive language learning experience because immersion is the best way to learn new language. Starting from the home page, users can choose between environments. Let’s start with Lingo-House, an interactive way to learn situational vocabulary. The user can enter the space, look for clickable items, and learn how to say that word in Spanish. 
+### 🏠 Learn new vocabulary and receive color-coded feedback 
+Lingo Land uses Virtual Reality to create an immersive language learning experience because immersion is the best way to learn a new language. Starting from the home page, users can choose between environments. Let’s start with Lingo-House, an interactive way to learn situational vocabulary. The user can enter the space, look for clickable items, and learn how to say that word in Spanish. 
 As you can see, users get feedback on their pronunciation. We used web speech API to parse speech to text. The virtual reality environment was created with A-Frame and 3JS. We used Amazon Web Services to store our large 3D models on the cloud. 
 
 ![tech stack and lingo house](https://s3.amazonaws.com/lingo-land-alisa/readme-pics/Snip20180917_156_1_2.png) ![lingo house 2](https://s3.amazonaws.com/lingo-land-alisa/readme-pics/Snip20180917_157_1_2.png) 
@@ -55,7 +59,7 @@ We built the two AI bots using Dialogflow and web speech APIs. We trained the bo
 ### 👫👭 🌍 👬👫  Meet users from other countries and practice real-time 
 At the Lingo Land learning can become a truly international experience. Virtual Lessons can be conducted between multiple users and offer prompts on various topics. To provide peer-to-peer real-time communication we use Networked Aframe and WebRTC API. WebRTC communicates streaming of data between browsers, by leveraging multiple standards and protocols, including WebSockets and  JavaScript Session Establishment Protocol. 
 
-Our application is designed to help us learn in a new immersive way. We created virtual worlds that engage users in explorational language interactions. We believes if feather explored the application can become the basis for peer-to-peer teaching and learning platform. 
+Our application is designed to help us learn in a new immersive way. We created virtual worlds that engage users in explorational language interactions. We believe if further explored the application can become a basis for peer-to-peer teaching and learning platform. 
 
 ####
 ####
